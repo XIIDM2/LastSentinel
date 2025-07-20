@@ -3,14 +3,21 @@ using UnityEngine;
 public class FlipSprite : MonoBehaviour
 {
     private float thresHold = 0.001f;
+    private Vector3 attackPointLocalPosition;
 
-    private PlayerMovementController playerMovementController;
+    private PlayerMovement playerMovement;
+    private PlayerAttack playerAttack;
     private SpriteRenderer spriteRenderer;
 
-    private void OnEnable()
+    private void Awake()
     {
-        playerMovementController = GetComponent<PlayerMovementController>();
+        playerMovement = GetComponent<PlayerMovement>();
+        playerAttack = GetComponent<PlayerAttack>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+    }
+    private void Start()
+    {
+        attackPointLocalPosition = playerAttack.AttackPoint.localPosition;
     }
 
     private void Update()
@@ -20,13 +27,26 @@ public class FlipSprite : MonoBehaviour
 
     private void FlipSpriteDirection()
     {
-        if (playerMovementController.HorizontalVelocity < -thresHold)
+
+        if (playerMovement.HorizontalVelocity < -thresHold)
         {
             spriteRenderer.flipX = true;
         }
-        else if (playerMovementController.HorizontalVelocity > thresHold)
+        else if (playerMovement.HorizontalVelocity > thresHold)
         {
             spriteRenderer.flipX = false;
         }
+
+        FlipAttackPoint(spriteRenderer.flipX);
+    }
+
+    private void FlipAttackPoint(bool facingLeft)
+    {
+        Vector3 attackPointPosition = attackPointLocalPosition;
+
+        attackPointPosition.x = facingLeft ? -Mathf.Abs(attackPointPosition.x) : Mathf.Abs(attackPointPosition.x);
+
+        playerAttack.AttackPoint.localPosition = attackPointPosition;
     }
 }
+

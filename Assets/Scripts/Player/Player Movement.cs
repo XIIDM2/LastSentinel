@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerInputController))]
-public class PlayerMovementController : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public float HorizontalVelocity => rigidBody.linearVelocityX;
     public bool IsOnGround => isOnGround;
@@ -13,45 +13,49 @@ public class PlayerMovementController : MonoBehaviour
     private float horizontalInput;
     private bool isJumping;
 
-    private Vector2 groundBoxSize = new Vector2(0.87f, 0.1f);
+    private Vector2 groundBoxSize = new Vector2(0.5f, 0.1f);
     private LayerMask groundLayer;
     private bool isOnGround;
 
     private PlayerInputController playerInputController;
     private Rigidbody2D rigidBody;
 
+    private void Awake()
+    {
+        playerInputController = GetComponent<PlayerInputController>();
+        rigidBody = GetComponent<Rigidbody2D>();     
+    }
+
+    private void Start()
+    {
+        groundLayer = LayerMask.GetMask("Ground"); 
+    }
 
     private void OnEnable()
     {
-        playerInputController = GetComponent<PlayerInputController>();
-        rigidBody = GetComponent<Rigidbody2D>();
-
         playerInputController.horizontalMovement += HandleHorizontalMovement;
-        playerInputController.Jump += HandleJump;
-
-        groundLayer = LayerMask.GetMask("Ground");
+        playerInputController.OnJumpPressed += HandleJumpPressed;
+        playerInputController.OnJumpReleased += HandleJumpReleased;
     }
 
     private void OnDisable()
     {
         playerInputController.horizontalMovement -= HandleHorizontalMovement;
-        playerInputController.Jump -= HandleJump;
-    }
-
-    private void Update()
-    {
-        isOnGround = Physics2D.OverlapBox(groundCheck.position, groundBoxSize, 0.0f, groundLayer);
+        playerInputController.OnJumpPressed -= HandleJumpPressed; 
+        playerInputController.OnJumpReleased -= HandleJumpReleased;
     }
 
     private void FixedUpdate()
     {
         rigidBody.linearVelocityX = horizontalInput * movementSpeed;
 
+        isOnGround = Physics2D.OverlapBox(groundCheck.position, groundBoxSize, 0.0f, groundLayer);
+
         if (isOnGround && isJumping)
         {
             rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            isJumping = false;
         }
+
     }
 
     private void HandleHorizontalMovement(float horizontalInput)
@@ -59,8 +63,14 @@ public class PlayerMovementController : MonoBehaviour
         this.horizontalInput = horizontalInput;
     }
 
-    private void HandleJump()
+    private void HandleJumpPressed()
     {
         isJumping = true;
     }
+
+    private void HandleJumpReleased()
+    {
+        isJumping = false;
+    }
+
 }
