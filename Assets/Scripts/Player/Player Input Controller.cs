@@ -10,36 +10,48 @@ public class PlayerInputController : MonoBehaviour
     public event Action OnAttackPressed;
     public event Action OnAttackReleased;
 
-    private InputAction jumpInput;
-    private InputAction attackInput;
+    private InputSystem_Actions inputActions;
 
     private void Awake()
     {
-        jumpInput = InputSystem.actions.FindAction("Jump");
-        attackInput = InputSystem.actions.FindAction("Attack");
+        inputActions = new InputSystem_Actions();
     }
 
     private void OnEnable()
     {
+        inputActions.Player.Move.performed += OnMovePerformed;
+        inputActions.Player.Move.canceled += OnMoveCanceled;
 
-        jumpInput.performed += OnJumpPerformed;
-        jumpInput.canceled += OnJumpCanceled;
+        inputActions.Player.Jump.performed += OnJumpPerformed;
+        inputActions.Player.Jump.canceled += OnJumpCanceled;
 
-        attackInput.performed += OnAttackPerformed;
-        attackInput.canceled += OnAttackCanceled;
+        inputActions.Player.Attack.performed += OnAttackPerformed;
+        inputActions.Player.Attack.canceled += OnAttackCanceled;
+
+        inputActions.Enable();
     }
 
     private void OnDisable()
     {
-        jumpInput.performed -= OnJumpPerformed;
-        jumpInput.canceled -= OnJumpCanceled;
+        inputActions.Player.Move.performed -= OnMovePerformed;
+        inputActions.Player.Move.canceled -= OnMoveCanceled;
 
-        attackInput.performed -= OnAttackPerformed;
-        attackInput.canceled -= OnAttackCanceled;
+        inputActions.Player.Jump.performed -= OnJumpPerformed;
+        inputActions.Player.Jump.canceled -= OnJumpCanceled;
+
+        inputActions.Player.Attack.performed -= OnAttackPerformed;
+        inputActions.Player.Attack.canceled -= OnAttackCanceled;
+
+        inputActions.Disable();
     }
-    public void OnMove(InputValue value)
+    private void OnMovePerformed(InputAction.CallbackContext context)
     {
-        horizontalMovement?.Invoke(value.Get<Vector2>().x);
+        horizontalMovement?.Invoke(context.ReadValue<Vector2>().x);
+    }
+
+    private void OnMoveCanceled(InputAction.CallbackContext context)
+    {
+        horizontalMovement?.Invoke(context.ReadValue<Vector2>().x);
     }
 
     private void OnJumpPerformed(InputAction.CallbackContext context)

@@ -2,21 +2,17 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    private PlayerMovement playerMovement;
-    private PlayerAttack playerAttack;
-    private Animator animator;
+    private Player player;
 
-    private void Awake()
+    private void Start()
     {
-        playerMovement = GetComponent<PlayerMovement>();
-        playerAttack = GetComponent<PlayerAttack>();
-        animator = GetComponentInChildren<Animator>();
+        player = GetComponent<Player>();
     }
 
     private void Update()
     {
-        animator.SetFloat("movementSpeed", Mathf.Abs(playerMovement.HorizontalVelocity));
-        animator.SetBool("isOnGround",  playerMovement.IsOnGround);
-        animator.SetBool("isAttacking", playerAttack.IsAttacking);
+        player.animator.SetFloat("movementSpeed", Mathf.Abs(player.playerMovement.HorizontalVelocity));
+        player.animator.SetBool("isOnGround", player.playerMovement.IsOnGround);
+        player.animator.SetBool("isAttacking", player.playerAttack.IsAttacking);
     }
 }

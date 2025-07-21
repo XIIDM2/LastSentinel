@@ -15,26 +15,24 @@ public class PlayerAttack : MonoBehaviour, IPerformAttack
 
     private bool isAttacking;
 
-    private void Awake()
-    {
-        playerInputController = GetComponent<PlayerInputController>();  
-    }
+    private Player player;
 
     private void Start()
     {
+        player = GetComponent<Player>();
         enemyLayer = LayerMask.GetMask("Enemy");
     }
 
     private void OnEnable()
     {
-        playerInputController.OnAttackPressed += HandleAttackPressed;
-        playerInputController.OnAttackReleased += HandleAttackReleased;
+        player.playerInputController.OnAttackPressed += HandleAttackPressed;
+        player.playerInputController.OnAttackReleased += HandleAttackReleased;
     }
 
     private void OnDisable()
     {
-        playerInputController.OnAttackPressed -= HandleAttackPressed;
-        playerInputController.OnAttackReleased -= HandleAttackReleased;
+        player.playerInputController.OnAttackPressed -= HandleAttackPressed;
+        player.playerInputController.OnAttackReleased -= HandleAttackReleased;
     }
 
     private void HandleAttackPressed()
@@ -53,13 +51,10 @@ public class PlayerAttack : MonoBehaviour, IPerformAttack
 
         for (int i = 0; i < enemiesHit.Length; i++)
         {
-            Debug.Log($"Enemy hit: {enemiesHit[i]}");
+            if (enemiesHit[i].TryGetComponent<Health>(out Health health))
+            {
+                health.TakeDamage(30);
+            }
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(AttackPoint.position, attackRange);
     }
 }
