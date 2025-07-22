@@ -160,19 +160,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1452176645}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5be6f7fab5139f40bc340a0ba86849c, type: 3}
+  m_Script: {fileID: 11500000, guid: f135bccdbbf57c14d9ceb3168ea9ae82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCameraPrefab: {fileID: 4403790707246476673, guid: 6f4f958b5b339a645b42fc2b8faabc2b, type: 3}
-  globalLight2DPrefab: {fileID: 9129186147535236647, guid: 90d749cdfa5aafb4593b7517ad89a317, type: 3}
+  mainCameraPrefab: {fileID: 4403790707246476673, guid: 571077dda6f20f641bf708435879c308, type: 3}
+  globalLight2DPrefab: {fileID: 9129186147535236647, guid: ea5dcf550838c434f9286cf870d58bdc, type: 3}
   levelPrefab:
-    m_AssetGUID: 3f033a1f6c9aa7b4eb2e98322c67f5b7
+    m_AssetGUID: dab23c0ff10c3d946adee0d698888f29
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 
     m_EditorAssetChanged: 0
   playerPrefab:
-    m_AssetGUID: 22163806de2f83944b797c69df0b3038
+    m_AssetGUID: 356c62292bb180e44a666d839932b716
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 

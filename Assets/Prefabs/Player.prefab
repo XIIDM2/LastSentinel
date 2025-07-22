@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4501012742723842032}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 2951782181471632317}
   - component: {fileID: 8265624833946045330}
   - component: {fileID: 2322975767960120663}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -120,12 +120,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 2740851794345277922, guid: cf1c3c875ee8d694e9abf2d7de628c51, type: 3}
+  m_Sprite: {fileID: 2740851794345277922, guid: 915a43d2379033742af98307960437be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.9375, y: 1.1875}
+  m_Size: {x: 0.15, y: 0.19}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -147,7 +147,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 5
-  m_Material: {fileID: 6200000, guid: 50efce0cd38dbf14c973789bb746f462, type: 2}
+  m_Material: {fileID: 6200000, guid: 56b6fdf55a67c2943accd28dde454c5a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 128
@@ -196,8 +196,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9375, y: 1.1875}
-    newSize: {x: 0.9375, y: 1.1875}
+    oldSize: {x: 0.15, y: 0.19}
+    newSize: {x: 0.15, y: 0.19}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -214,7 +214,7 @@ Animator:
   m_GameObject: {fileID: 4713836438149436050}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d91760c7b3497004b914dc9f7dad03ee, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8bbfd938a606917459f1cbfc432b6acb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 4eb851f6997a93e48bc969d03da79c36, type: 3}
   m_NotificationBehavior: 3
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -265,7 +265,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4713836438149436050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 426655c39446efe42bb142408c9bbcf6, type: 3}
+  m_Script: {fileID: 11500000, guid: a60e6c686faa5f74a8b1078edf0683b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &947229510008697679
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4713836438149436050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e04adfcdc3618441b08bc8d736156db, type: 3}
+  m_Script: {fileID: 11500000, guid: 64df49b1f160cfc489647c74cf7670e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &8952562557677643093
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4713836438149436050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 724d5f82167f31e488f29b5919db3417, type: 3}
+  m_Script: {fileID: 11500000, guid: ed65ba08b36361e46ab840cf2e3a45b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 10
@@ -304,7 +304,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4713836438149436050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4ee315668b716c479134d2a6f1aeefb, type: 3}
+  m_Script: {fileID: 11500000, guid: 62387baf9b9dab347970ef8cbe1b9b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AttackPoint: {fileID: 4501012742723842032}
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4713836438149436050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd25c26c3bb153f4289a7225c5d30cab, type: 3}
+  m_Script: {fileID: 11500000, guid: 534c35905b2d1a94a95567a1d083fe96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &8265624833946045330
@@ -330,7 +330,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4713836438149436050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5f03efc291f3624a866c06daffc042d, type: 3}
+  m_Script: {fileID: 11500000, guid: c54fc0945e4e53e4288eab276f87aa14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2322975767960120663
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4713836438149436050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af20cc8e63e070a4abb2288afa5964ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 66b4d83bee548104899378b9795049a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7385278450823937788
@@ -354,7 +354,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2691853374693295322}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: GroundPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13,21 +13,26 @@ MonoBehaviour:
   m_Name: Prefabs
   m_EditorClassIdentifier: 
   m_GroupName: Prefabs
-  m_GUID: e069b99abcd04c243bb761cea2e70ce1
+  m_GUID: 86e14dbd6e78a3c478d19945965766a7
   m_SerializeEntries:
-  - m_GUID: 22163806de2f83944b797c69df0b3038
-    m_Address: Player
+  - m_GUID: 356c62292bb180e44a666d839932b716
+    m_Address: Assets/Prefabs/Player.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3f033a1f6c9aa7b4eb2e98322c67f5b7
-    m_Address: Level
+  - m_GUID: 436b9667c1f35f144a3152ebf4f07f85
+    m_Address: Assets/Prefabs/Thief.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dab23c0ff10c3d946adee0d698888f29
+    m_Address: Assets/Prefabs/Level.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
-  m_Settings: {fileID: 11400000, guid: 5ca72bee6a74bcd44ac793e583c5feef, type: 2}
+  m_Settings: {fileID: 11400000, guid: ddd5559b02efb2047b15736dd52d4573, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 3932ff2605c0c6a45a30df91bb209c6a, type: 2}
-    - {fileID: 11400000, guid: 0a9eda1ab22308044a16f8f94fae1446, type: 2}
+    - {fileID: 11400000, guid: 3297cc5bfae0bb949a02b8466ee49cda, type: 2}
+    - {fileID: 11400000, guid: 71bf8d18ce2575c4bbdb5e0d20674ded, type: 2}

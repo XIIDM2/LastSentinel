@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6755236944495837895, guid: 1bd14acc665ef734cbfb8baa38962e21, type: 3}
+  m_Sprite: {fileID: 6755236944495837895, guid: c65abe336fef2ef48b0e632eba4d543f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -109,7 +109,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 5
-  m_Material: {fileID: 6200000, guid: 50efce0cd38dbf14c973789bb746f462, type: 2}
+  m_Material: {fileID: 6200000, guid: 56b6fdf55a67c2943accd28dde454c5a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 64
@@ -176,7 +176,7 @@ Animator:
   m_GameObject: {fileID: 7468468757823723507}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 341875d48aa5c474bb6176b5e72e8686, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6185d122be5f6414a8aab84ab952cd8b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7468468757823723507}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70d966efe20db524f86b652fbee9eb16, type: 3}
+  m_Script: {fileID: 11500000, guid: b6eac46fe4c758344997f7ec26ab6b20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6063623916232178148
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7468468757823723507}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af20cc8e63e070a4abb2288afa5964ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 3223a7e3437b1ff40bdc68807a710f4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2523207388173349675
@@ -221,6 +221,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7468468757823723507}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 287efe3a0ff231240b6f5cd3cb3695b9, type: 3}
+  m_Script: {fileID: 11500000, guid: 66b4d83bee548104899378b9795049a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
