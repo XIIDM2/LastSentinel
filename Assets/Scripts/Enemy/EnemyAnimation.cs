@@ -1,22 +1,28 @@
 using UnityEngine;
+using VContainer;
 
 public class EnemyAnimation : MonoBehaviour
 {
-    private Enemy enemy;
-    private void Start()
+    private Animator animator;
+    private Health health;
+
+    [Inject]
+    private void Construct(Animator animator, Health health)
     {
-        enemy = GetComponent<Enemy>();
+        this.animator = animator;
+        this.health = health;
 
     }
+
     private void OnEnable()
     {
-        enemy.health.HealthDamaged += OnHit;
-        enemy.health.Death += OnDeath;
+        health.HealthDamaged += OnHit;
+        health.Death += OnDeath;
     }
     private void OnDisable()
     {
-        enemy.health.HealthDamaged -= OnHit;
-        enemy.health.Death -= OnDeath;
+        health.HealthDamaged -= OnHit;
+        health.Death -= OnDeath;
     }
 
     void Update()
@@ -26,11 +32,11 @@ public class EnemyAnimation : MonoBehaviour
 
     private void OnHit(int damageAmount)
     {
-        enemy.animator.SetTrigger("isHit");
+        animator.SetTrigger("isHit");
     }
 
     private void OnDeath()
     {
-        enemy.animator.SetBool("isDead", true);
+        animator.SetBool("isDead", true);
     }
 }

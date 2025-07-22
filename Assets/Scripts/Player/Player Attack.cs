@@ -1,4 +1,6 @@
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using VContainer;
 
 [RequireComponent(typeof(PlayerInputController))]
 public class PlayerAttack : MonoBehaviour, IPerformAttack
@@ -11,28 +13,31 @@ public class PlayerAttack : MonoBehaviour, IPerformAttack
 
     private LayerMask enemyLayer;
 
-    private PlayerInputController playerInputController;
-
     private bool isAttacking;
 
-    private Player player;
+    private PlayerInputController playerInputController;
+
+    [Inject]
+    private void Construct(PlayerInputController playerInputController)
+    {
+        this.playerInputController = playerInputController;
+    }
 
     private void Start()
     {
-        player = GetComponent<Player>();
         enemyLayer = LayerMask.GetMask("Enemy");
     }
 
     private void OnEnable()
     {
-        player.playerInputController.OnAttackPressed += HandleAttackPressed;
-        player.playerInputController.OnAttackReleased += HandleAttackReleased;
+        playerInputController.OnAttackPressed += HandleAttackPressed;
+        playerInputController.OnAttackReleased += HandleAttackReleased;
     }
 
     private void OnDisable()
     {
-        player.playerInputController.OnAttackPressed -= HandleAttackPressed;
-        player.playerInputController.OnAttackReleased -= HandleAttackReleased;
+        playerInputController.OnAttackPressed -= HandleAttackPressed;
+        playerInputController.OnAttackReleased -= HandleAttackReleased;
     }
 
     private void HandleAttackPressed()

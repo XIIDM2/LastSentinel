@@ -1,18 +1,48 @@
 using UnityEngine;
+using VContainer;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    private Player player;
+    private Animator animator; 
+    private PlayerMovement playerMovement;
+    private PlayerAttack playerAttack;
+    private Health health;
 
-    private void Start()
+    [Inject]
+    private void Construct(Animator animator, PlayerMovement playerMovement, PlayerAttack playerAttack, Health health)
     {
-        player = GetComponent<Player>();
+        this.animator = animator;
+        this.playerMovement = playerMovement;
+        this.playerAttack = playerAttack;
+        this.health = health;
+
+    }
+
+    private void OnEnable()
+    {
+        health.HealthDamaged += OnHit;
+        health.Death += OnDeath;
+    }
+    private void OnDisable()
+    {
+        health.HealthDamaged -= OnHit;
+        health.Death -= OnDeath;
     }
 
     private void Update()
     {
-        player.animator.SetFloat("movementSpeed", Mathf.Abs(player.playerMovement.HorizontalVelocity));
-        player.animator.SetBool("isOnGround", player.playerMovement.IsOnGround);
-        player.animator.SetBool("isAttacking", player.playerAttack.IsAttacking);
+        animator.SetFloat("movementSpeed", Mathf.Abs(playerMovement.HorizontalVelocity));
+        animator.SetBool("isOnGround", playerMovement.IsOnGround);
+        animator.SetBool("isAttacking", playerAttack.IsAttacking);
+    }
+
+    private void OnHit(int damageAmount)
+    {
+        animator.SetTrigger("isHit");
+    }
+
+    private void OnDeath()
+    {
+        animator.SetBool("isDead", true);
     }
 }

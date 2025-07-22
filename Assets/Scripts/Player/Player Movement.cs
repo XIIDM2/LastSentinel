@@ -1,9 +1,10 @@
 using UnityEngine;
+using VContainer;
 
 [RequireComponent(typeof(PlayerInputController))]
 public class PlayerMovement : MonoBehaviour
 {
-    public float HorizontalVelocity => player.rigidBody.linearVelocityX;
+    public float HorizontalVelocity => rigidBody.linearVelocityX;
     public bool IsOnGround => isOnGround;
 
     [SerializeField] private float movementSpeed = 10.0f;
@@ -17,37 +18,44 @@ public class PlayerMovement : MonoBehaviour
     private LayerMask groundLayer;
     private bool isOnGround;
 
-    private Player player;
+    private Rigidbody2D rigidBody;
+    private PlayerInputController playerInputController;
+
+    [Inject]
+    private void Construct(Rigidbody2D rigidbody, PlayerInputController playerInputController)
+    {
+        this.rigidBody = rigidbody;
+        this.playerInputController = playerInputController;
+    }
 
     private void Start()
     {
-        player = GetComponent<Player>();
         groundLayer = LayerMask.GetMask("Ground"); 
     }
 
     private void OnEnable()
     {
-        player.playerInputController.horizontalMovement += HandleHorizontalMovement;
-        player.playerInputController.OnJumpPressed += HandleJumpPressed;
-        player.playerInputController.OnJumpReleased += HandleJumpReleased;
+        playerInputController.horizontalMovement += HandleHorizontalMovement;
+        playerInputController.OnJumpPressed += HandleJumpPressed;
+        playerInputController.OnJumpReleased += HandleJumpReleased;
     }
 
     private void OnDisable()
     {
-        player.playerInputController.horizontalMovement -= HandleHorizontalMovement;
-        player.playerInputController.OnJumpPressed -= HandleJumpPressed;
-        player.playerInputController.OnJumpReleased -= HandleJumpReleased;
+        playerInputController.horizontalMovement -= HandleHorizontalMovement;
+        playerInputController.OnJumpPressed -= HandleJumpPressed;
+        playerInputController.OnJumpReleased -= HandleJumpReleased;
     }
 
     private void FixedUpdate()
     {
-        player.rigidBody.linearVelocityX = horizontalInput * movementSpeed;
+        rigidBody.linearVelocityX = horizontalInput * movementSpeed;
 
         isOnGround = Physics2D.OverlapBox(groundCheck.position, groundBoxSize, 0.0f, groundLayer);
 
         if (isOnGround && isJumping)
         {
-            player.rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
 
     }

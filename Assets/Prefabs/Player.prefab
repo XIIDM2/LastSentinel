@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4501012742723842032}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,14 +45,14 @@ GameObject:
   - component: {fileID: 1850839477758392763}
   - component: {fileID: 9157847965965251787}
   - component: {fileID: 897054049401534511}
-  - component: {fileID: 5701002582638025855}
   - component: {fileID: 947229510008697679}
   - component: {fileID: 8952562557677643093}
   - component: {fileID: 7212519902069809532}
   - component: {fileID: 2951782181471632317}
   - component: {fileID: 8265624833946045330}
   - component: {fileID: 2322975767960120663}
-  m_Layer: 6
+  - component: {fileID: 3644549580590070653}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.15, y: 0.19}
+    oldSize: {x: 0.9375, y: 1.1875}
     newSize: {x: 0.15, y: 0.19}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -256,18 +256,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &5701002582638025855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4713836438149436050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a60e6c686faa5f74a8b1078edf0683b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &947229510008697679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,6 +333,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66b4d83bee548104899378b9795049a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3644549580590070653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4713836438149436050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeeaa2532a5d1914a83b5bcc776e277b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: 
+  autoRun: 1
+  autoInjectGameObjects:
+  - {fileID: 4713836438149436050}
 --- !u!1 &7385278450823937788
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +359,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2691853374693295322}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: GroundPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

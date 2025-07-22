@@ -1,16 +1,26 @@
 using UnityEngine;
+using VContainer;
 
 public class FlipSprite : MonoBehaviour
 {
     private float thresHold = 0.001f;
     private Vector3 attackPointLocalPosition;
 
-    private Player player;
+    private SpriteRenderer spriteRenderer;
+    private PlayerMovement playerMovement;
+    private PlayerAttack playerAttack;
+
+    [Inject]
+    private void Construct(SpriteRenderer spriteRenderer, PlayerMovement playerMovement, PlayerAttack playerAttack)
+    {
+        this.spriteRenderer = spriteRenderer;
+        this.playerMovement = playerMovement;
+        this.playerAttack = playerAttack;
+    }
 
     private void Start()
     {
-        player = GetComponent<Player>();
-        attackPointLocalPosition = player.playerAttack.AttackPoint.localPosition;
+        attackPointLocalPosition = playerAttack.AttackPoint.localPosition;
     }
 
     private void Update()
@@ -21,16 +31,16 @@ public class FlipSprite : MonoBehaviour
     private void FlipSpriteDirection()
     {
 
-        if (player.playerMovement.HorizontalVelocity < -thresHold)
+        if (playerMovement.HorizontalVelocity < -thresHold)
         {
-            player.spriteRenderer.flipX = true;
+            spriteRenderer.flipX = true;
         }
-        else if (player.playerMovement.HorizontalVelocity > thresHold)
+        else if (playerMovement.HorizontalVelocity > thresHold)
         {
-            player.spriteRenderer.flipX = false;
+            spriteRenderer.flipX = false;
         }
 
-        FlipAttackPoint(player.spriteRenderer.flipX);
+        FlipAttackPoint(spriteRenderer.flipX);
     }
 
     private void FlipAttackPoint(bool facingLeft)
@@ -39,7 +49,7 @@ public class FlipSprite : MonoBehaviour
 
         attackPointPosition.x = facingLeft ? -Mathf.Abs(attackPointPosition.x) : Mathf.Abs(attackPointPosition.x);
 
-        player.playerAttack.AttackPoint.localPosition = attackPointPosition;
+        playerAttack.AttackPoint.localPosition = attackPointPosition;
     }
 }
 

@@ -1325,7 +1325,7 @@ Transform:
   m_GameObject: {fileID: 4700359442343229830}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1401,7 +1401,7 @@ GameObject:
   - component: {fileID: 9140497032785078756}
   - component: {fileID: 8358379116553573198}
   - component: {fileID: 4392415293015925038}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tilemap_Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1746,7 +1746,7 @@ GameObject:
   - component: {fileID: 4598151929722996765}
   - component: {fileID: 7087631087599845557}
   - component: {fileID: 9126293078482616911}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tilemap_Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
