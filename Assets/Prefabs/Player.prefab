@@ -350,6 +350,7 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects:
   - {fileID: 4713836438149436050}
+  PlayerData: {fileID: 11400000, guid: 44ae2844702567f4f804994f29bb2060, type: 2}
 --- !u!1 &7385278450823937788
 GameObject:
   m_ObjectHideFlags: 0

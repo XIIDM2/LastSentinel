@@ -228,3 +228,4 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
+  enemyData: {fileID: 11400000, guid: bcaf79037f7eead48a77735937e236d1, type: 2}

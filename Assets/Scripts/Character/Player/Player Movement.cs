@@ -7,9 +7,10 @@ public class PlayerMovement : MonoBehaviour
     public float HorizontalVelocity => rigidBody.linearVelocityX;
     public bool IsOnGround => isOnGround;
 
-    [SerializeField] private float movementSpeed = 10.0f;
     [SerializeField] private float jumpForce = 15.0f;
     [SerializeField] private Transform groundCheck;
+
+    private float movementSpeed;
 
     private float horizontalInput;
     private bool isJumping;
@@ -20,16 +21,19 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rigidBody;
     private PlayerInputController playerInputController;
+    private CharacterData characterData;
 
     [Inject]
-    private void Construct(Rigidbody2D rigidbody, PlayerInputController playerInputController)
+    private void Construct(Rigidbody2D rigidbody, PlayerInputController playerInputController, CharacterData characterData)
     {
         this.rigidBody = rigidbody;
         this.playerInputController = playerInputController;
+        this.characterData = characterData;
     }
 
     private void Start()
     {
+        movementSpeed = characterData.MovementSpeed;
         groundLayer = LayerMask.GetMask("Ground"); 
     }
 

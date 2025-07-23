@@ -9,23 +9,29 @@ public class PlayerAttack : MonoBehaviour, IPerformAttack
 
     public Transform AttackPoint;
 
-    [SerializeField] private float attackRange = 0.5f;
+    private int attackDamage;
+    private float attackRange;
 
     private LayerMask enemyLayer;
 
     private bool isAttacking;
 
     private PlayerInputController playerInputController;
+    private CharacterData characterData;
 
     [Inject]
-    private void Construct(PlayerInputController playerInputController)
+    private void Construct(PlayerInputController playerInputController, CharacterData characterData)
     {
         this.playerInputController = playerInputController;
+        this.characterData = characterData;
     }
 
     private void Start()
     {
         enemyLayer = LayerMask.GetMask("Enemy");
+
+        attackDamage = characterData.AttackDamage;
+        attackRange = characterData.AttackRadius;
     }
 
     private void OnEnable()
@@ -58,7 +64,7 @@ public class PlayerAttack : MonoBehaviour, IPerformAttack
         {
             if (enemiesHit[i].TryGetComponent<Health>(out Health health))
             {
-                health.TakeDamage(30);
+                health.TakeDamage(attackDamage);
             }
         }
     }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using VContainer;
 
 public class Health : MonoBehaviour, IDamageable
 {
@@ -9,10 +10,17 @@ public class Health : MonoBehaviour, IDamageable
     private int maxHealth;
     private int currentHealth;
 
+    private CharacterData characterData;
+
+    [Inject]
+    private void Construct( CharacterData characterData)
+    {
+        this.characterData = characterData;
+    }
 
     private void Start()
     {
-        maxHealth = 100;
+        maxHealth = characterData.MaxHealth;
         currentHealth = maxHealth;
     }
     public void TakeDamage(int amount)
