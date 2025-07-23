@@ -21,13 +21,15 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rigidBody;
     private PlayerInputController playerInputController;
+    private FlipSprite flipSprite;
     private CharacterData characterData;
 
     [Inject]
-    private void Construct(Rigidbody2D rigidbody, PlayerInputController playerInputController, CharacterData characterData)
+    private void Construct(Rigidbody2D rigidbody, PlayerInputController playerInputController, FlipSprite flipSprite, CharacterData characterData)
     {
         this.rigidBody = rigidbody;
         this.playerInputController = playerInputController;
+        this.flipSprite = flipSprite;
         this.characterData = characterData;
     }
 
@@ -49,6 +51,11 @@ public class PlayerMovement : MonoBehaviour
         playerInputController.horizontalMovement -= HandleHorizontalMovement;
         playerInputController.OnJumpPressed -= HandleJumpPressed;
         playerInputController.OnJumpReleased -= HandleJumpReleased;
+    }
+
+    private void Update()
+    {
+        flipSprite.FlipSpriteDirection(rigidBody.linearVelocityX);
     }
 
     private void FixedUpdate()

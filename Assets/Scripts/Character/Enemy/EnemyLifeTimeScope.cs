@@ -2,18 +2,18 @@ using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-public class EnemyLifeTimeScope : LifetimeScope
+public class EnemyLifeTimeScope : CharacterLifeScope
 {
     [SerializeField] private CharacterData enemyData;
-    protected override void Configure(IContainerBuilder builder)
+    protected override void ConfigureCharacterSpecifics(IContainerBuilder builder)
     {
         builder.RegisterInstance(enemyData);
-        builder.RegisterComponentOn<SpriteRenderer>(gameObject);
-        builder.RegisterComponentOn<Animator>(gameObject);
-        builder.RegisterComponentOn<Rigidbody2D>(gameObject);
         builder.RegisterComponentOn<EnemyAnimation>(gameObject);
-        builder.RegisterComponentOn<Health>(gameObject);
+        builder.RegisterComponentOn<EnemyAttack>(gameObject);
+        builder.RegisterComponentOn<Health>(gameObject);    
+  
 
-        
     }  
 }
+
+

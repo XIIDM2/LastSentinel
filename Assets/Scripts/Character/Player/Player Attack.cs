@@ -10,7 +10,7 @@ public class PlayerAttack : MonoBehaviour, IPerformAttack
     public Transform AttackPoint;
 
     private int attackDamage;
-    private float attackRange;
+    private float attackRadius;
 
     private LayerMask enemyLayer;
 
@@ -31,7 +31,7 @@ public class PlayerAttack : MonoBehaviour, IPerformAttack
         enemyLayer = LayerMask.GetMask("Enemy");
 
         attackDamage = characterData.AttackDamage;
-        attackRange = characterData.AttackRadius;
+        attackRadius = characterData.AttackRadius;
     }
 
     private void OnEnable()
@@ -58,7 +58,7 @@ public class PlayerAttack : MonoBehaviour, IPerformAttack
 
     public void Attack()
     {
-        Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(AttackPoint.position, attackRange, enemyLayer);
+        Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(AttackPoint.position, attackRadius, enemyLayer);
 
         for (int i = 0; i < enemiesHit.Length; i++)
         {

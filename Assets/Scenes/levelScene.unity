@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &867998493 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8060798413390567560, guid: 436b9667c1f35f144a3152ebf4f07f85, type: 3}
+  m_PrefabInstance: {fileID: 3422780431069298505}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1019547938
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -260,9 +265,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4216213735565577471, guid: 356c62292bb180e44a666d839932b716, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 4713836438149436050, guid: 356c62292bb180e44a666d839932b716, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713836438149436050, guid: 356c62292bb180e44a666d839932b716, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385278450823937788, guid: 356c62292bb180e44a666d839932b716, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -330,6 +347,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 571077dda6f20f641bf708435879c308, type: 3}
+--- !u!1 &1888902212 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7468468757823723507, guid: 436b9667c1f35f144a3152ebf4f07f85, type: 3}
+  m_PrefabInstance: {fileID: 3422780431069298505}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2080081963
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -439,6 +461,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Thief
       objectReference: {fileID: 0}
+    - target: {fileID: 7990038428904497054, guid: 436b9667c1f35f144a3152ebf4f07f85, type: 3}
+      propertyPath: autoInjectGameObjects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990038428904497054, guid: 436b9667c1f35f144a3152ebf4f07f85, type: 3}
+      propertyPath: 'autoInjectGameObjects.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1888902212}
+    - target: {fileID: 7990038428904497054, guid: 436b9667c1f35f144a3152ebf4f07f85, type: 3}
+      propertyPath: 'autoInjectGameObjects.Array.data[1]'
+      value: 
+      objectReference: {fileID: 867998493}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

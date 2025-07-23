@@ -5,9 +5,10 @@ public class EnemyAnimation : MonoBehaviour
 {
     private Animator animator;
     private Health health;
+    private EnemyAttack enemyAttack;
 
     [Inject]
-    private void Construct(Animator animator, Health health)
+    private void Construct(Animator animator,  Health health)
     {
         this.animator = animator;
         this.health = health;
@@ -25,9 +26,9 @@ public class EnemyAnimation : MonoBehaviour
         health.Death -= OnDeath;
     }
 
-    void Update()
+    public void OnAttack()
     {
-        
+        animator.SetTrigger("isAttacking");
     }
 
     private void OnHit(int damageAmount)
