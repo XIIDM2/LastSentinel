@@ -17,16 +17,14 @@ public class EnemyAttack : MonoBehaviour, IPerformAttack
     private CharacterData characterData;
 
 
-    [Inject]
-    private void Construct(CharacterData characterData)
-    {
-        this.characterData = characterData;
-
-    }
-
     private void Start()
     {
-        playerLayer = LayerMask.NameToLayer("Player");
+        playerLayer = LayerMask.GetMask("Player");
+    }
+
+    public void InitData(CharacterData characterData)
+    {
+        this.characterData = characterData;
 
         attackDamage = characterData.AttackDamage;
         attackRadius = characterData.AttackRadius;

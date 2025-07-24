@@ -75,4 +75,10 @@ public class PlayerAttack : MonoBehaviour, IPerformAttack
         isAttacking = false;
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(AttackPoint.position, attackRadius);
+    }
+
 }

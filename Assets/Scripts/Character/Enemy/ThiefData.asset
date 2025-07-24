@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   movementSpeed: 5
+  jumpForce: 15
   attackDamage: 10
   attackRadius: 0.5
