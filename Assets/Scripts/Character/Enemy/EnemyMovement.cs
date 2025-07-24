@@ -12,13 +12,15 @@ public class EnemyMovement : MonoBehaviour
     private LayerMask groundLayer;
     private bool isOnGround;
 
-    private CharacterData characterData;
     private Rigidbody2D rigidBody;
+    private FlipSprite flipSprite;
+    private CharacterData characterData;
 
     [Inject]
-    private void Construct(Rigidbody2D rigidBody, CharacterData characterData)
+    private void Construct(Rigidbody2D rigidBody, FlipSprite flipSprite, CharacterData characterData)
     {
         this.rigidBody = rigidBody;
+        this.flipSprite = flipSprite;
         this.characterData = characterData;
     }
 
@@ -28,6 +30,11 @@ public class EnemyMovement : MonoBehaviour
         groundLayer = LayerMask.GetMask("Ground");
     }
 
+    private void Update()
+    {
+        flipSprite.FlipSpriteDirection(rigidBody.linearVelocityX);
+    }
+
     private void FixedUpdate()
     {
         isOnGround = Physics2D.OverlapBox(groundCheck.position, groundBoxSize, 0.0f, groundLayer);
@@ -35,10 +42,15 @@ public class EnemyMovement : MonoBehaviour
 
     public void MoveToTarget(Transform target)
     {
-        Vector2 targetDirection = (target.position - transform.position).normalized;
+        Vector2 targetDirection = (target.position - transform.position);
 
         rigidBody.linearVelocityX = targetDirection.x * movementSpeed;      
 
+    }
+
+    public void StopMove()
+    {
+        rigidBody.linearVelocityX = 0.0f;
     }
 
     public void Jump()

@@ -15,20 +15,18 @@ public class EnemyAttack : MonoBehaviour, IPerformAttack
     private LayerMask playerLayer;
 
     private CharacterData characterData;
-    private EnemyAnimation enemyAnimation;
 
 
     [Inject]
-    private void Construct(EnemyAnimation enemyAnimation, CharacterData characterData)
+    private void Construct(CharacterData characterData)
     {
-        this.enemyAnimation = enemyAnimation;
         this.characterData = characterData;
 
     }
 
     private void Start()
     {
-        playerLayer = LayerMask.GetMask("Player");
+        playerLayer = LayerMask.NameToLayer("Player");
 
         attackDamage = characterData.AttackDamage;
         attackRadius = characterData.AttackRadius;
@@ -36,8 +34,6 @@ public class EnemyAttack : MonoBehaviour, IPerformAttack
 
     public void Attack()
     {
-        enemyAnimation.OnAttack();
-
         Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(AttackPoint.position, attackRadius, playerLayer);
 
         for (int i = 0; i < enemiesHit.Length; i++)

@@ -4,38 +4,43 @@ using VContainer;
 [RequireComponent(typeof(PlayerInputController))]
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Links")]
     public float HorizontalVelocity => rigidBody.linearVelocityX;
-    public bool IsOnGround => isOnGround;
+    public bool IsJumping => isJumping;
+    public bool IsMoving => isMoving;
 
-    [SerializeField] private float jumpForce = 15.0f;
+    [Header("Ground")]
     [SerializeField] private Transform groundCheck;
-
-    private float movementSpeed;
-
-    private float horizontalInput;
-    private bool isJumping;
-
     private Vector2 groundBoxSize = new Vector2(0.5f, 0.1f);
     private LayerMask groundLayer;
     private bool isOnGround;
 
+    [Header("Jump")]
+    private float jumpForce = 15.0f;
+    private bool isJumping;
+
+    [Header("Movement")]
+    private float movementSpeed;
+    private float horizontalInput;
+    private bool isMoving => Mathf.Abs(rigidBody.linearVelocityX) > 0.01;
+
+    [Header("Components")]
     private Rigidbody2D rigidBody;
-    private PlayerInputController playerInputController;
     private FlipSprite flipSprite;
+    private PlayerInputController playerInputController;
+
     private CharacterData characterData;
 
     [Inject]
-    private void Construct(Rigidbody2D rigidbody, PlayerInputController playerInputController, FlipSprite flipSprite, CharacterData characterData)
+    private void Construct(Rigidbody2D rigidbody, PlayerInputController playerInputController, FlipSprite flipSprite)
     {
         this.rigidBody = rigidbody;
         this.playerInputController = playerInputController;
         this.flipSprite = flipSprite;
-        this.characterData = characterData;
     }
 
     private void Start()
     {
-        movementSpeed = characterData.MovementSpeed;
         groundLayer = LayerMask.GetMask("Ground"); 
     }
 
@@ -62,13 +67,25 @@ public class PlayerMovement : MonoBehaviour
     {
         rigidBody.linearVelocityX = horizontalInput * movementSpeed;
 
-        isOnGround = Physics2D.OverlapBox(groundCheck.position, groundBoxSize, 0.0f, groundLayer);
+        TryJump();
+    }
 
-        if (isOnGround && isJumping)
-        {
-            rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }
+    public void InitData(CharacterData characterData)
+    {
+        this.characterData = characterData;
 
+        movementSpeed = characterData.MovementSpeed;
+        jumpForce = characterData.JumpForce;
+    }
+
+    public bool IsOnGround()
+    {
+        return isOnGround = Physics2D.OverlapBox(groundCheck.position, groundBoxSize, 0.0f, groundLayer);
+    }
+
+    private void TryJump()
+    {
+        if (IsOnGround() && isJumping) rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 
     private void HandleHorizontalMovement(float horizontalInput)
@@ -86,4 +103,9 @@ public class PlayerMovement : MonoBehaviour
         isJumping = false;
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(groundCheck.position, groundBoxSize);
+    }
 }

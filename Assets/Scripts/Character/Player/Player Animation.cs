@@ -15,7 +15,6 @@ public class PlayerAnimation : MonoBehaviour
         this.playerMovement = playerMovement;
         this.playerAttack = playerAttack;
         this.health = health;
-
     }
 
     private void OnEnable()
@@ -32,7 +31,7 @@ public class PlayerAnimation : MonoBehaviour
     private void Update()
     {
         animator.SetFloat("movementSpeed", Mathf.Abs(playerMovement.HorizontalVelocity));
-        animator.SetBool("isOnGround", playerMovement.IsOnGround);
+        animator.SetBool("isOnGround", playerMovement.IsOnGround());
         animator.SetBool("isAttacking", playerAttack.IsAttacking);
     }
 

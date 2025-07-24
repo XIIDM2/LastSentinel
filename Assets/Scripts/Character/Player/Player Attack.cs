@@ -5,33 +5,31 @@ using VContainer;
 [RequireComponent(typeof(PlayerInputController))]
 public class PlayerAttack : MonoBehaviour, IPerformAttack
 {
+    [Header("Links")]
     public bool IsAttacking => isAttacking;
 
+    [Header("Attack")]
     public Transform AttackPoint;
-
     private int attackDamage;
     private float attackRadius;
+    private bool isAttacking;
 
     private LayerMask enemyLayer;
 
-    private bool isAttacking;
-
+    [Header("Components")]
     private PlayerInputController playerInputController;
+
     private CharacterData characterData;
 
     [Inject]
-    private void Construct(PlayerInputController playerInputController, CharacterData characterData)
+    private void Construct(PlayerInputController playerInputController)
     {
         this.playerInputController = playerInputController;
-        this.characterData = characterData;
     }
 
     private void Start()
     {
         enemyLayer = LayerMask.GetMask("Enemy");
-
-        attackDamage = characterData.AttackDamage;
-        attackRadius = characterData.AttackRadius;
     }
 
     private void OnEnable()
@@ -46,14 +44,12 @@ public class PlayerAttack : MonoBehaviour, IPerformAttack
         playerInputController.OnAttackReleased -= HandleAttackReleased;
     }
 
-    private void HandleAttackPressed()
+    public void InitData(CharacterData characterData)
     {
-        isAttacking = true;
-    }
+        this.characterData = characterData;
 
-    private void HandleAttackReleased()
-    {
-        isAttacking = false;
+        attackDamage = characterData.AttackDamage;
+        attackRadius = characterData.AttackRadius;
     }
 
     public void Attack()
@@ -68,4 +64,15 @@ public class PlayerAttack : MonoBehaviour, IPerformAttack
             }
         }
     }
+
+    private void HandleAttackPressed()
+    {
+        isAttacking = true;
+    }
+
+    private void HandleAttackReleased()
+    {
+        isAttacking = false;
+    }
+
 }

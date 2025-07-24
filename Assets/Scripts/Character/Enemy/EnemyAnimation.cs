@@ -5,7 +5,6 @@ public class EnemyAnimation : MonoBehaviour
 {
     private Animator animator;
     private Health health;
-    private EnemyAttack enemyAttack;
 
     [Inject]
     private void Construct(Animator animator,  Health health)

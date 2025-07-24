@@ -5,8 +5,10 @@ using UnityEngine.Events;
 [RequireComponent(typeof(CircleCollider2D))]
 public class EnemyDetection : MonoBehaviour
 {
+    public Transform Target => target;
 
     [SerializeField] private float radius = 3.0f;
+
     private Transform target;
 
     private LayerMask playerLayer;
@@ -27,7 +29,7 @@ public class EnemyDetection : MonoBehaviour
 
         circleCollider.radius = radius;
 
-        playerLayer = LayerMask.GetMask("Player");
+        playerLayer = LayerMask.NameToLayer("Player");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

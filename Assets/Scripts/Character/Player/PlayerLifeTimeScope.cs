@@ -9,10 +9,10 @@ public class PlayerLifeTimeScope : CharacterLifeScope
     protected override void ConfigureCharacterSpecifics(IContainerBuilder builder)
     {
         builder.RegisterInstance(playerData);
+
         builder.RegisterComponentOn<PlayerInputController>(gameObject);
         builder.RegisterComponentOn<PlayerAttack>(gameObject);
         builder.RegisterComponentOn<PlayerMovement>(gameObject);
-        builder.RegisterComponentOn<PlayerAnimation>(gameObject);
         builder.RegisterComponentOn<Health>(gameObject);
     }
 

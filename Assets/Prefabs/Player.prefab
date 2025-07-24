@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4501012742723842032}
-  m_Layer: 7
+  m_Layer: 31
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,13 +46,14 @@ GameObject:
   - component: {fileID: 9157847965965251787}
   - component: {fileID: 897054049401534511}
   - component: {fileID: 947229510008697679}
+  - component: {fileID: 130558779715268346}
   - component: {fileID: 8952562557677643093}
   - component: {fileID: 7212519902069809532}
-  - component: {fileID: 2951782181471632317}
+  - component: {fileID: 1013226672204804083}
   - component: {fileID: 2322975767960120663}
   - component: {fileID: 4002043456034339231}
   - component: {fileID: 3644549580590070653}
-  m_Layer: 7
+  m_Layer: 31
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -268,6 +269,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64df49b1f160cfc489647c74cf7670e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &130558779715268346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4713836438149436050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66dda32a608b80e4f99cffedab13adf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8952562557677643093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,7 +293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed65ba08b36361e46ab840cf2e3a45b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 15
   groundCheck: {fileID: 2691853374693295322}
 --- !u!114 &7212519902069809532
 MonoBehaviour:
@@ -295,7 +307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackPoint: {fileID: 4501012742723842032}
---- !u!114 &2951782181471632317
+--- !u!114 &1013226672204804083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -358,7 +370,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2691853374693295322}
-  m_Layer: 7
+  m_Layer: 31
   m_Name: GroundPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

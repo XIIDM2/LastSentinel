@@ -12,17 +12,17 @@ public class Health : MonoBehaviour, IDamageable
 
     private CharacterData characterData;
 
-    [Inject]
-    private void Construct( CharacterData characterData)
-    {
-        this.characterData = characterData;
-    }
-
     private void Start()
     {
         maxHealth = characterData.MaxHealth;
         currentHealth = maxHealth;
     }
+
+    public void InitData(CharacterData characterData)
+    {
+        this.characterData = characterData;
+    }
+
     public void TakeDamage(int amount)
     {
         if (currentHealth <= 0) return;
