@@ -9,7 +9,7 @@ public class PlayerAttack : MonoBehaviour, IPerformAttack
     public bool IsAttacking => isAttacking;
 
     [Header("Attack")]
-    public Transform AttackPoint;
+    [SerializeField] private Transform AttackPoint;
     private int attackDamage;
     private float attackRadius;
     private bool isAttacking;
@@ -19,16 +19,18 @@ public class PlayerAttack : MonoBehaviour, IPerformAttack
     [Header("Components")]
     private PlayerInputController playerInputController;
 
-    private CharacterData characterData;
+    [Inject] private CharacterData characterData;
 
-    [Inject]
-    private void Construct(PlayerInputController playerInputController)
+    private void Awake()
     {
-        this.playerInputController = playerInputController;
+        playerInputController = GetComponent<PlayerInputController>();
     }
 
     private void Start()
     {
+        attackDamage = characterData.AttackDamage;
+        attackRadius = characterData.AttackRadius;
+
         enemyLayer = LayerMask.GetMask("Enemy");
     }
 
@@ -42,14 +44,6 @@ public class PlayerAttack : MonoBehaviour, IPerformAttack
     {
         playerInputController.OnAttackPressed -= HandleAttackPressed;
         playerInputController.OnAttackReleased -= HandleAttackReleased;
-    }
-
-    public void InitData(CharacterData characterData)
-    {
-        this.characterData = characterData;
-
-        attackDamage = characterData.AttackDamage;
-        attackRadius = characterData.AttackRadius;
     }
 
     public void Attack()

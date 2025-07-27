@@ -8,13 +8,14 @@ public class PlayerAnimation : MonoBehaviour
     private PlayerAttack playerAttack;
     private Health health;
 
-    [Inject]
-    private void Construct(Animator animator, PlayerMovement playerMovement, PlayerAttack playerAttack, Health health)
+    private void Awake()
     {
-        this.animator = animator;
-        this.playerMovement = playerMovement;
-        this.playerAttack = playerAttack;
-        this.health = health;
+        animator = GetComponent<Animator>();
+
+        playerMovement = GetComponent<PlayerMovement>();
+        playerAttack = GetComponent<PlayerAttack>();
+
+        health = GetComponent<Health>();
     }
 
     private void OnEnable()
@@ -31,7 +32,7 @@ public class PlayerAnimation : MonoBehaviour
     private void Update()
     {
         animator.SetFloat("movementSpeed", Mathf.Abs(playerMovement.HorizontalVelocity));
-        animator.SetBool("isOnGround", playerMovement.IsOnGround());
+        animator.SetBool("isOnGround", playerMovement.IsOnGround);
         animator.SetBool("isAttacking", playerAttack.IsAttacking);
     }
 

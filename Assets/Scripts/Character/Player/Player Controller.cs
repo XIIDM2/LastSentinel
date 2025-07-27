@@ -9,22 +9,12 @@ public class PlayerController : MonoBehaviour
 
     private Health health;
 
-    private CharacterData characterData;
-
-    [Inject]
-    private void Construct(Health health, PlayerMovement playerMovement, PlayerAttack playerAttack, CharacterData characterData)
-    {
-       this.health = health;
-       this.playerMovement = playerMovement;
-       this.playerAttack = playerAttack;
-       this.characterData = characterData;
-    }
-
     private void Awake()
     {
-        health.InitData(characterData);
-        playerMovement.InitData(characterData);
-        playerAttack.InitData(characterData);
+        playerMovement = GetComponent<PlayerMovement>();
+        playerAttack = GetComponent<PlayerAttack>();
+
+        health = GetComponent<Health>();
     }
 
     private void Start()

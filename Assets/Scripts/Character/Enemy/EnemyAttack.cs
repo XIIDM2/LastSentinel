@@ -3,31 +3,27 @@ using VContainer;
 
 public class EnemyAttack : MonoBehaviour, IPerformAttack
 {
+    [Header("Links")]
     public bool IsAttacking => isAttacking;
 
-    public Transform AttackPoint;
-
+    [Header("Attack")]
+    [SerializeField] private Transform AttackPoint;
     private int attackDamage;
     private float attackRadius;
-
     private bool isAttacking;
 
     private LayerMask playerLayer;
 
-    private CharacterData characterData;
+    [Header("Components")]
+    [Inject] private CharacterData characterData;
 
 
     private void Start()
     {
-        playerLayer = LayerMask.GetMask("Player");
-    }
-
-    public void InitData(CharacterData characterData)
-    {
-        this.characterData = characterData;
-
         attackDamage = characterData.AttackDamage;
         attackRadius = characterData.AttackRadius;
+
+        playerLayer = LayerMask.GetMask("Player");
     }
 
     public void Attack()

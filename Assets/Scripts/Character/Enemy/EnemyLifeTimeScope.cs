@@ -8,6 +8,7 @@ public class EnemyLifeTimeScope : CharacterLifeScope
     protected override void ConfigureCharacterSpecifics(IContainerBuilder builder)
     {
         builder.RegisterInstance(enemyData);
+
         builder.RegisterComponentFromChildOn<EnemyDetection>(gameObject);
         builder.RegisterComponentOn<EnemyAnimation>(gameObject);
         builder.RegisterComponentOn<EnemyAttack>(gameObject);

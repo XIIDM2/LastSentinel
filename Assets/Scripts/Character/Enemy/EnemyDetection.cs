@@ -22,12 +22,8 @@ public class EnemyDetection : MonoBehaviour
 
     private void Start()
     {
-        if (circleCollider == null)
-        {
-            Debug.LogError($"{gameObject.name}: AI Detection Collider is null");
-        }
-
         circleCollider.radius = radius;
+        circleCollider.isTrigger = true;
 
         playerLayer = LayerMask.NameToLayer("Player");
     }

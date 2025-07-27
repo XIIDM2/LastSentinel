@@ -25,6 +25,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 901cf06ba2565fc47a5c722ad0125ef7
+    m_Address: Assets/Prefabs/Anomaly.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dab23c0ff10c3d946adee0d698888f29
     m_Address: Assets/Prefabs/Level.prefab
     m_ReadOnly: 0

@@ -11,6 +11,7 @@ public class PlayerInputController : MonoBehaviour
     public event Action OnAttackReleased;
 
     private PlayerInput playerInput;
+
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();

@@ -6,12 +6,11 @@ public class EnemyAnimation : MonoBehaviour
     private Animator animator;
     private Health health;
 
-    [Inject]
-    private void Construct(Animator animator,  Health health)
+    private void Awake()
     {
-        this.animator = animator;
-        this.health = health;
+        animator = GetComponent<Animator>();
 
+        health = GetComponent<Health>();
     }
 
     private void OnEnable()

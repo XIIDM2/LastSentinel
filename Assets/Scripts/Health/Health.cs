@@ -10,17 +10,12 @@ public class Health : MonoBehaviour, IDamageable
     private int maxHealth;
     private int currentHealth;
 
-    private CharacterData characterData;
+    [Inject] private readonly CharacterData characterData;
 
     private void Start()
     {
         maxHealth = characterData.MaxHealth;
         currentHealth = maxHealth;
-    }
-
-    public void InitData(CharacterData characterData)
-    {
-        this.characterData = characterData;
     }
 
     public void TakeDamage(int amount)
@@ -35,5 +30,12 @@ public class Health : MonoBehaviour, IDamageable
             currentHealth = 0;
             Death?.Invoke();
         }
+    }
+
+    public void HealDamage(int amount)
+    {
+        if (currentHealth <= 0 || currentHealth >= 0) return;
+
+        currentHealth += amount;
     }
 }

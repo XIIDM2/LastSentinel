@@ -3,7 +3,7 @@ using VContainer;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public bool isMoving => rigidBody.linearVelocityX <= 0.01f;
+    public bool IsMoving => rigidBody.linearVelocityX <= 0.01f;
     public bool IsOnGround => isOnGround;
 
     [SerializeField] private Transform groundCheck;
@@ -16,32 +16,28 @@ public class EnemyMovement : MonoBehaviour
     private bool isOnGround => Physics2D.OverlapBox(groundCheck.position, groundBoxSize, 0.0f, groundLayer);
 
     private Rigidbody2D rigidBody;
-    private FlipSprite flipSprite;
-    private CharacterData characterData;
+    private ChangeVisualDirection visualDirection;
 
-    [Inject]
-    private void Construct(Rigidbody2D rigidBody, FlipSprite flipSprite)
+    [Inject] private CharacterData characterData;
+
+    private void Awake()
     {
-        this.rigidBody = rigidBody;
-        this.flipSprite = flipSprite;
+        rigidBody = GetComponent<Rigidbody2D>();
+
+        visualDirection = GetComponent<ChangeVisualDirection>();
     }
 
     private void Start()
     {
-        groundLayer = LayerMask.GetMask("Ground");
-    }
-
-    public void InitData(CharacterData characterData)
-    {
-        this.characterData = characterData;
-
         movementSpeed = characterData.MovementSpeed;
         jumpForce = characterData.JumpForce;
+
+        groundLayer = LayerMask.GetMask("Ground");
     }
 
     private void Update()
     {
-        flipSprite.FlipSpriteDirection(rigidBody.linearVelocityX);
+        visualDirection.FlipSpriteDirection(rigidBody.linearVelocityX);
     }
 
     public void MoveToTarget(Transform target)
@@ -49,6 +45,14 @@ public class EnemyMovement : MonoBehaviour
         Vector2 targetDirection = (target.position - transform.position).normalized;
 
         rigidBody.linearVelocityX = targetDirection.x * movementSpeed;      
+
+    }
+
+    public void MoveFromTarget(Transform target)
+    {
+        Vector2 targetDirection = (target.position - transform.position).normalized;
+
+        rigidBody.linearVelocityX = -targetDirection.x * movementSpeed;
 
     }
 
@@ -65,5 +69,9 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(groundCheck.position, groundBoxSize);
+    }
 }

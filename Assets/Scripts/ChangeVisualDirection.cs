@@ -1,18 +1,11 @@
 using UnityEngine;
 using VContainer;
 
-public class FlipSprite : MonoBehaviour
+public class ChangeVisualDirection : MonoBehaviour
 {
-    private float thresHold = 0.001f;
-    protected Vector3 attackPointLocalPosition;
+    private const float thresHold = 0.001f;
 
-    private SpriteRenderer spriteRenderer;
-
-    [Inject]
-    private void Construct(SpriteRenderer spriteRenderer)
-    {
-        this.spriteRenderer = spriteRenderer;
-    }
+    [Inject] private SpriteRenderer spriteRenderer;
 
     public void FlipSpriteDirection(float value)
     {

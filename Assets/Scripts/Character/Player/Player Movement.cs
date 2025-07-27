@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Links")]
     public float HorizontalVelocity => rigidBody.linearVelocityX;
+    public bool IsOnGround => isOnGround;
     public bool IsJumping => isJumping;
     public bool IsMoving => isMoving;
 
@@ -13,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     private Vector2 groundBoxSize = new Vector2(0.5f, 0.1f);
     private LayerMask groundLayer;
-    private bool isOnGround;
+    private bool isOnGround => Physics2D.OverlapBox(groundCheck.position, groundBoxSize, 0.0f, groundLayer);
 
     [Header("Jump")]
     private float jumpForce = 15.0f;
@@ -26,21 +27,23 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Components")]
     private Rigidbody2D rigidBody;
-    private FlipSprite flipSprite;
+    private ChangeVisualDirection changeVisualDirection;
     private PlayerInputController playerInputController;
 
-    private CharacterData characterData;
+    [Inject] private CharacterData characterData;
 
-    [Inject]
-    private void Construct(Rigidbody2D rigidbody, PlayerInputController playerInputController, FlipSprite flipSprite)
+    private void Awake()
     {
-        this.rigidBody = rigidbody;
-        this.playerInputController = playerInputController;
-        this.flipSprite = flipSprite;
+        rigidBody = GetComponent<Rigidbody2D>();
+        playerInputController = GetComponent<PlayerInputController>();
+        changeVisualDirection = GetComponent<ChangeVisualDirection>();
     }
 
     private void Start()
     {
+        movementSpeed = characterData.MovementSpeed;
+        jumpForce = characterData.JumpForce;
+
         groundLayer = LayerMask.GetMask("Ground"); 
     }
 
@@ -60,32 +63,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        flipSprite.FlipSpriteDirection(rigidBody.linearVelocityX);
+        changeVisualDirection.FlipSpriteDirection(rigidBody.linearVelocityX);
     }
 
     private void FixedUpdate()
     {
         rigidBody.linearVelocityX = horizontalInput * movementSpeed;
 
-        TryJump();
-    }
-
-    public void InitData(CharacterData characterData)
-    {
-        this.characterData = characterData;
-
-        movementSpeed = characterData.MovementSpeed;
-        jumpForce = characterData.JumpForce;
-    }
-
-    public bool IsOnGround()
-    {
-        return isOnGround = Physics2D.OverlapBox(groundCheck.position, groundBoxSize, 0.0f, groundLayer);
+        if (isOnGround && isJumping)
+        {
+            TryJump();
+        }
     }
 
     private void TryJump()
     {
-        if (IsOnGround() && isJumping) rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 
     private void HandleHorizontalMovement(float horizontalInput)

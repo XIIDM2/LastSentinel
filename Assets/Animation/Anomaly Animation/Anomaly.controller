@@ -32,7 +32,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Thief_Run
+  m_Name: Anomaly_Run
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -46,7 +46,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 4740a616883ffd6439b9f53cca6f49bf, type: 2}
+  m_Motion: {fileID: 7400000, guid: d97b81739c8355e42a5479af6484d696, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -59,7 +59,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Thief_Hit
+  m_Name: Anomaly_Hit
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -74,7 +74,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 89e19a3437c794b41994f0e762866002, type: 2}
+  m_Motion: {fileID: 7400000, guid: 749d1ecfb7513a4409ee3eaedd814d2b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -112,7 +112,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Thief_Death
+  m_Name: Anomaly_Death
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -125,7 +125,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: dff6b4e94eda1bd43a53a22ad057a127, type: 2}
+  m_Motion: {fileID: 7400000, guid: f520de7726d39b34fb155754d834eb4d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -138,7 +138,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Thief_Idle
+  m_Name: Anomaly_Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -153,7 +153,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b8b5407d54f92f842b7d0a8d8824ade2, type: 2}
+  m_Motion: {fileID: 7400000, guid: d8ffa77f1de739943983fdb1f282ff38, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -250,7 +250,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Thief
+  m_Name: Anomaly
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: movementSpeed
@@ -297,7 +297,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Thief_Attack
+  m_Name: Anomaly_Attack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -312,7 +312,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 4b20194e24f1b1a4d9e6cb8379f39fcc, type: 2}
+  m_Motion: {fileID: 7400000, guid: accc7bef906d6a041ad848b31fb27979, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

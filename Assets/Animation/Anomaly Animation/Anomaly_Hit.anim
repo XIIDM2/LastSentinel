@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Thief_Hit
+  m_Name: Anomaly_Hit
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,9 +21,9 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -6609437680785238901, guid: c65abe336fef2ef48b0e632eba4d543f, type: 3}
+      value: {fileID: -9060551104076602938, guid: 0516e5f4511edef408d8c392ed2cc711, type: 3}
     - time: 0.083333336
-      value: {fileID: 8042756605803503811, guid: c65abe336fef2ef48b0e632eba4d543f, type: 3}
+      value: {fileID: -9033721337649344499, guid: 0516e5f4511edef408d8c392ed2cc711, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,8 +46,8 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -6609437680785238901, guid: c65abe336fef2ef48b0e632eba4d543f, type: 3}
-    - {fileID: 8042756605803503811, guid: c65abe336fef2ef48b0e632eba4d543f, type: 3}
+    - {fileID: -9060551104076602938, guid: 0516e5f4511edef408d8c392ed2cc711, type: 3}
+    - {fileID: -9033721337649344499, guid: 0516e5f4511edef408d8c392ed2cc711, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
