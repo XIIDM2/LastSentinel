@@ -1,6 +1,4 @@
 using UnityEngine;
-using VContainer;
-
 
 public class PlayerController : MonoBehaviour
 {

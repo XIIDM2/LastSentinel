@@ -1,29 +1,17 @@
 using UnityEngine;
-using VContainer;
 
-public class EnemyAnimation : MonoBehaviour
+public class EnemyAnimation : CharacterAnimation
 {
-    private Animator animator;
     private EnemyAttack enemyAttack;
-    private Health health;
 
-    private void Awake()
+    protected override void Awake()
     {
-        animator = GetComponent<Animator>();
-
-        health = transform.root.GetComponent<Health>();
-        enemyAttack = transform.root.GetComponent<EnemyAttack>();
+        base.Awake();
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        health.HealthDamaged += OnHit;
-        health.Death += OnDeath;
-    }
-    private void OnDisable()
-    {
-        health.HealthDamaged -= OnHit;
-        health.Death -= OnDeath;
+        enemyAttack = characterAttack as EnemyAttack;
     }
 
     public void ReverseAttackStateEvent()
@@ -31,23 +19,8 @@ public class EnemyAnimation : MonoBehaviour
         enemyAttack.ReverseAttackState();
     }
 
-    public void AttackEvent()
-    {
-        enemyAttack.Attack();
-    }
-
     public void OnAttack()
     {
         animator.SetTrigger("isAttacking");
-    }
-
-    private void OnHit(int damageAmount)
-    {
-        animator.SetTrigger("isHit");
-    }
-
-    private void OnDeath()
-    {
-        animator.SetBool("isDead", true);
     }
 }

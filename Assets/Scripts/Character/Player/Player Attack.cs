@@ -1,37 +1,14 @@
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
-using VContainer;
 
 [RequireComponent(typeof(PlayerInputController))]
-public class PlayerAttack : MonoBehaviour, IPerformAttack
+public class PlayerAttack : CharacterAttack
 {
-    [Header("Links")]
-    public bool IsAttacking => isAttacking;
-
-    [Header("Attack")]
-    [SerializeField] private Transform AttackPoint;
-    private int attackDamage;
-    private float attackRadius;
-    private bool isAttacking;
-
-    private LayerMask enemyLayer;
-
     [Header("Components")]
     private PlayerInputController playerInputController;
-
-    [Inject] private CharacterData characterData;
 
     private void Awake()
     {
         playerInputController = GetComponent<PlayerInputController>();
-    }
-
-    private void Start()
-    {
-        attackDamage = characterData.AttackDamage;
-        attackRadius = characterData.AttackRadius;
-
-        enemyLayer = LayerMask.GetMask("Enemy", "BossDeath");
     }
 
     private void OnEnable()
@@ -46,17 +23,9 @@ public class PlayerAttack : MonoBehaviour, IPerformAttack
         playerInputController.OnAttackReleased -= HandleAttackReleased;
     }
 
-    public void Attack()
+    protected override void SetLayersToHit()
     {
-        Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(AttackPoint.position, attackRadius, enemyLayer);
-
-        for (int i = 0; i < enemiesHit.Length; i++)
-        {
-            if (enemiesHit[i].transform.root.TryGetComponent<Health>(out Health health))
-            {
-                health.TakeDamage(attackDamage);
-            }
-        }
+        enemyLayer = LayerMask.GetMask("Enemy", "BossDeath");
     }
 
     private void HandleAttackPressed()
@@ -68,11 +37,4 @@ public class PlayerAttack : MonoBehaviour, IPerformAttack
     {
         isAttacking = false;
     }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(AttackPoint.position, attackRadius);
-    }
-
 }

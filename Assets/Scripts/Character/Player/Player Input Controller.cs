@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerInputController : MonoBehaviour
 {
-    public event Action<float> horizontalInputValue;
+    public event Action<Vector2> MovementInput;
     public event Action OnJumpPressed;
     public event Action OnAttackPressed;
     public event Action OnAttackReleased;
@@ -37,7 +37,7 @@ public class PlayerInputController : MonoBehaviour
         switch (context.action.name)
         {
             case "Move":
-                horizontalInputValue?.Invoke(context.ReadValue<Vector2>().x);
+                MovementInput?.Invoke(context.ReadValue<Vector2>());
                 break;
             case "Jump":
                 if (context.started)

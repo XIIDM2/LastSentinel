@@ -1,29 +1,11 @@
 using UnityEngine;
 using VContainer;
 
-public class EnemyAttack : MonoBehaviour, IPerformAttack
+public class EnemyAttack : CharacterAttack
 {
-    [Header("Links")]
-    public bool IsAttacking => isAttacking;
-
-    [Header("Attack")]
-    [SerializeField] private Transform AttackPoint;
-    [SerializeField] private int attackDamage;
-    [SerializeField] private float attackRadius;
-    private bool isAttacking = false;
-
-    private LayerMask playerLayer;
-
-    [Header("Components")]
-    [Inject] private CharacterData characterData;
-
-
-    private void Start()
+    protected override void SetLayersToHit()
     {
-        attackDamage = characterData.AttackDamage;
-        attackRadius = characterData.AttackRadius;
-
-        playerLayer = LayerMask.GetMask("Player");
+        enemyLayer = LayerMask.GetMask("Player");
     }
 
     public void ReverseAttackState()
@@ -31,24 +13,4 @@ public class EnemyAttack : MonoBehaviour, IPerformAttack
         isAttacking = !isAttacking;
     }
 
-
-
-    public void Attack()
-    {
-        Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(AttackPoint.position, attackRadius, playerLayer);
-
-        for (int i = 0; i < enemiesHit.Length; i++)
-        {
-            if (enemiesHit[i].transform.root.TryGetComponent<Health>(out Health health))
-            {
-                health.TakeDamage(attackDamage);
-            }
-        }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(AttackPoint.position, attackRadius);
-    }
 }

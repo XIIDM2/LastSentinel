@@ -16,7 +16,7 @@ public static class VContainerExtensions
         builder.RegisterComponent(component).As<T>();
     }
 
-    public static void RegisterComponentFromChildOn<T>(this IContainerBuilder builder, GameObject gameObject) where T : Component
+    public static void RegisterComponentFromChildrenOn<T>(this IContainerBuilder builder, GameObject gameObject) where T : Component
     {
         var component = gameObject.GetComponentInChildren<T>();
 

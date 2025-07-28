@@ -119,23 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &596931691 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4585279211814421704, guid: 356c62292bb180e44a666d839932b716, type: 3}
-  m_PrefabInstance: {fileID: 1062521464}
+--- !u!4 &636074904 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 381900660901471828, guid: 436b9667c1f35f144a3152ebf4f07f85, type: 3}
+  m_PrefabInstance: {fileID: 3422780431069298505}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &596931695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 596931691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 534c35905b2d1a94a95567a1d083fe96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1019547938
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -277,22 +265,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4585279211814421704, guid: 356c62292bb180e44a666d839932b716, type: 3}
-      propertyPath: m_Name
-      value: VisualModel
-      objectReference: {fileID: 0}
     - target: {fileID: 4713836438149436050, guid: 356c62292bb180e44a666d839932b716, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1013226672204804083, guid: 356c62292bb180e44a666d839932b716, type: 3}
+    - target: {fileID: 8952562557677643093, guid: 356c62292bb180e44a666d839932b716, type: 3}
+      propertyPath: groundCheckTransform
+      value: 
+      objectReference: {fileID: 1683761035}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4585279211814421704, guid: 356c62292bb180e44a666d839932b716, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 596931695}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 356c62292bb180e44a666d839932b716, type: 3}
 --- !u!1 &1604349609 stripped
 GameObject:
@@ -360,6 +344,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 571077dda6f20f641bf708435879c308, type: 3}
+--- !u!4 &1683761035 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2691853374693295322, guid: 356c62292bb180e44a666d839932b716, type: 3}
+  m_PrefabInstance: {fileID: 1062521464}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1768961627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -459,6 +448,11 @@ PrefabInstance:
       insertIndex: 6
       addedObject: {fileID: 2103048273}
   m_SourcePrefab: {fileID: 100100000, guid: 191e9b237a888da409307d571d825634, type: 3}
+--- !u!4 &1904944546 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3949764022447832420, guid: 901cf06ba2565fc47a5c722ad0125ef7, type: 3}
+  m_PrefabInstance: {fileID: 8075410982450613933}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2080081963
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1447,9 +1441,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7087631087599845557, guid: dab23c0ff10c3d946adee0d698888f29, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7283769507166272329, guid: dab23c0ff10c3d946adee0d698888f29, type: 3}
       propertyPath: m_Name
       value: Level
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358379116553573198, guid: dab23c0ff10c3d946adee0d698888f29, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9126293078482616911, guid: dab23c0ff10c3d946adee0d698888f29, type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9126293078482616911, guid: dab23c0ff10c3d946adee0d698888f29, type: 3}
       propertyPath: m_GeometryType
@@ -2043,6 +2049,10 @@ PrefabInstance:
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[35].Y
       value: -50000000
       objectReference: {fileID: 0}
+    - target: {fileID: 9140497032785078756, guid: dab23c0ff10c3d946adee0d698888f29, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2065,7 +2075,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3273d243666f3dc4094c73aaf4721102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundCheck: {fileID: 0}
+  groundCheckTransform: {fileID: 0}
+  groundBoxSize: {x: 0.5, y: 0.1}
+  jumpForce: 15
+  movementSpeed: 0
 --- !u!114 &2103048273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2088,6 +2101,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1663656816238983637, guid: 436b9667c1f35f144a3152ebf4f07f85, type: 3}
+      propertyPath: groundCheckTransform
+      value: 
+      objectReference: {fileID: 636074904}
     - target: {fileID: 5783807078362954194, guid: 436b9667c1f35f144a3152ebf4f07f85, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.33
@@ -2134,7 +2151,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7468468757823723507, guid: 436b9667c1f35f144a3152ebf4f07f85, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2195,8 +2212,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8162921166640606575, guid: 901cf06ba2565fc47a5c722ad0125ef7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8794892484337079412, guid: 901cf06ba2565fc47a5c722ad0125ef7, type: 3}
+      propertyPath: groundCheckTransform
+      value: 
+      objectReference: {fileID: 1904944546}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using VContainer;
 
-public class Health : MonoBehaviour, IDamageable
+public class Health : MonoBehaviour
 {
     public event UnityAction<int> HealthDamaged;
     public event UnityAction Death;

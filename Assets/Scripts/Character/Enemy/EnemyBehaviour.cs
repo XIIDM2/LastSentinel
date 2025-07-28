@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using VContainer;
 
@@ -8,15 +7,15 @@ public class EnemyBehaviour : MonoBehaviour
 
     [Header("WallCheck")]
     [SerializeField] private Transform wallCheck;
-    private Vector2 wallCheckSize = new Vector2(0.3f, 0.9f);
+    [SerializeField] private Vector2 wallCheckSize = new Vector2(0.3f, 0.9f);
     private bool isStuckInWall => Physics2D.OverlapBox(wallCheck.position, wallCheckSize, 0.0f, groundLayer);
 
     private LayerMask groundLayer;
 
-    private float jumpCoolDown = 1.0f;
+    [SerializeField] private float jumpCoolDown = 1.0f;
     private float lastJumpTime = float.MinValue;
 
-    protected float attackCoolDown;
+    [SerializeField] protected float attackCoolDown;
     protected float lastAttackTime = float.MinValue;
 
     [Header("Components")]
@@ -61,7 +60,7 @@ public class EnemyBehaviour : MonoBehaviour
     private void Update()
     {
         UpdateState();
-        Debug.Log(currentState);
+
         switch (currentState)
         {
             case EnemyState.Idle:
@@ -74,7 +73,6 @@ public class EnemyBehaviour : MonoBehaviour
                     enemyAnimation.OnAttack();
                     lastAttackTime = Time.time;
                 }
-
                 break;
         }
     }
@@ -87,10 +85,10 @@ public class EnemyBehaviour : MonoBehaviour
                 enemyMovement.MoveToTarget(enemyDetection.Target);
                 break;
             case EnemyState.Jump:
-                if (enemyMovement.GetGroundCheck() && Time.time >= lastJumpTime + jumpCoolDown)
+                if (enemyMovement.IsGrounded && Time.time >= lastJumpTime + jumpCoolDown)
                 {
-                    enemyMovement.Jump();
-                    lastJumpTime = Time.time;
+                    enemyMovement.TryJump();
+                    lastJumpTime = Time.time;     
                 }
                 break;
         }
