@@ -118,7 +118,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -132,7 +132,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -156,7 +156,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -223,12 +223,12 @@ TextureImporter:
       name: Dead_anin_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 257
-        width: 48
-        height: 47
+        x: 16
+        y: 258
+        width: 46
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -245,12 +245,12 @@ TextureImporter:
       name: Dead_anin_1
       rect:
         serializedVersion: 2
-        x: 95
-        y: 258
-        width: 48
-        height: 47
+        x: 96
+        y: 259
+        width: 46
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -267,12 +267,12 @@ TextureImporter:
       name: Dead_anin_2
       rect:
         serializedVersion: 2
-        x: 175
-        y: 258
-        width: 48
-        height: 48
+        x: 176
+        y: 259
+        width: 46
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -289,12 +289,12 @@ TextureImporter:
       name: Dead_anin_3
       rect:
         serializedVersion: 2
-        x: 255
-        y: 256
-        width: 48
-        height: 51
+        x: 256
+        y: 257
+        width: 46
+        height: 49
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -311,12 +311,12 @@ TextureImporter:
       name: Dead_anin_4
       rect:
         serializedVersion: 2
-        x: 335
-        y: 254
-        width: 48
-        height: 52
+        x: 336
+        y: 255
+        width: 46
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -333,12 +333,12 @@ TextureImporter:
       name: Dead_anin_5
       rect:
         serializedVersion: 2
-        x: 415
-        y: 252
-        width: 48
-        height: 54
+        x: 416
+        y: 253
+        width: 46
+        height: 52
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -355,12 +355,12 @@ TextureImporter:
       name: Dead_anin_6
       rect:
         serializedVersion: 2
-        x: 495
-        y: 251
-        width: 48
-        height: 54
+        x: 496
+        y: 252
+        width: 46
+        height: 52
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -377,12 +377,12 @@ TextureImporter:
       name: Dead_anin_7
       rect:
         serializedVersion: 2
-        x: 575
-        y: 251
-        width: 48
-        height: 53
+        x: 576
+        y: 252
+        width: 46
+        height: 51
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -399,12 +399,12 @@ TextureImporter:
       name: Dead_anin_8
       rect:
         serializedVersion: 2
-        x: 15
-        y: 177
-        width: 48
-        height: 47
+        x: 16
+        y: 178
+        width: 46
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -418,15 +418,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead_anin_9
+      name: Dead_anin_16
       rect:
         serializedVersion: 2
-        x: 15
-        y: 96
-        width: 45
-        height: 46
+        x: 16
+        y: 97
+        width: 43
+        height: 44
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -440,15 +440,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead_anin_10
+      name: Dead_anin_18
       rect:
         serializedVersion: 2
-        x: 15
-        y: 16
-        width: 45
-        height: 46
+        x: 16
+        y: 17
+        width: 43
+        height: 44
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -462,15 +462,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead_anin_11
+      name: Dead_anin_9
       rect:
         serializedVersion: 2
-        x: 90
-        y: 177
-        width: 55
-        height: 51
+        x: 91
+        y: 178
+        width: 53
+        height: 49
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -484,15 +484,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead_anin_12
+      name: Dead_anin_19
       rect:
         serializedVersion: 2
-        x: 94
-        y: 16
-        width: 46
-        height: 45
+        x: 95
+        y: 17
+        width: 44
+        height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -506,15 +506,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead_anin_13
+      name: Dead_anin_17
       rect:
         serializedVersion: 2
-        x: 95
-        y: 96
-        width: 45
-        height: 46
+        x: 96
+        y: 97
+        width: 43
+        height: 44
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -528,15 +528,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead_anin_14
+      name: Dead_anin_10
       rect:
         serializedVersion: 2
-        x: 168
-        y: 177
-        width: 55
-        height: 51
+        x: 169
+        y: 178
+        width: 53
+        height: 49
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -550,15 +550,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead_anin_15
+      name: Dead_anin_20
       rect:
         serializedVersion: 2
-        x: 174
-        y: 16
-        width: 45
-        height: 47
+        x: 175
+        y: 17
+        width: 43
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -572,15 +572,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead_anin_16
+      name: Dead_anin_11
       rect:
         serializedVersion: 2
-        x: 253
-        y: 167
-        width: 61
-        height: 66
+        x: 254
+        y: 168
+        width: 59
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -594,15 +594,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead_anin_17
+      name: Dead_anin_21
       rect:
         serializedVersion: 2
-        x: 253
-        y: 33
-        width: 20
-        height: 32
+        x: 254
+        y: 18
+        width: 38
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -616,15 +616,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead_anin_18
+      name: Dead_anin_24
       rect:
         serializedVersion: 2
-        x: 266
-        y: 17
-        width: 27
-        height: 34
+        x: 495
+        y: 33
+        width: 36
+        height: 37
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -638,15 +638,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead_anin_19
+      name: Dead_anin_25
       rect:
         serializedVersion: 2
-        x: 332
-        y: 34
-        width: 24
-        height: 34
+        x: 580
+        y: 37
+        width: 31
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -660,15 +660,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead_anin_20
+      name: Dead_anin_12
       rect:
         serializedVersion: 2
-        x: 333
-        y: 167
-        width: 61
-        height: 64
+        x: 334
+        y: 168
+        width: 59
+        height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -682,15 +682,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead_anin_21
+      name: Dead_anin_22
       rect:
         serializedVersion: 2
-        x: 345
-        y: 34
-        width: 9
-        height: 11
+        x: 333
+        y: 21
+        width: 36
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -704,15 +704,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead_anin_22
+      name: Dead_anin_26
       rect:
         serializedVersion: 2
-        x: 352
-        y: 20
-        width: 15
-        height: 34
+        x: 667
+        y: 39
+        width: 24
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -726,15 +726,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead_anin_23
+      name: Dead_anin_13
       rect:
         serializedVersion: 2
-        x: 412
-        y: 167
-        width: 62
-        height: 64
+        x: 413
+        y: 168
+        width: 60
+        height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -748,15 +748,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead_anin_24
+      name: Dead_anin_23
       rect:
         serializedVersion: 2
-        x: 412
-        y: 25
-        width: 120
-        height: 46
+        x: 413
+        y: 26
+        width: 38
+        height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -770,15 +770,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead_anin_25
+      name: Dead_anin_14
       rect:
         serializedVersion: 2
-        x: 495
-        y: 177
-        width: 48
-        height: 48
+        x: 496
+        y: 178
+        width: 46
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -792,15 +792,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead_anin_26
+      name: Dead_anin_15
       rect:
         serializedVersion: 2
-        x: 575
-        y: 36
-        width: 344
-        height: 188
+        x: 576
+        y: 177
+        width: 46
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -817,12 +817,12 @@ TextureImporter:
       name: Dead_anin_27
       rect:
         serializedVersion: 2
-        x: 364
-        y: 26
-        width: 6
-        height: 8
+        x: 747
+        y: 42
+        width: 24
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -835,11 +835,55 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Dead_anin_28
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 44
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ea85a9fa1c065049814f451e78f2604
+      internalID: -101962546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead_anin_29
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 57
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dceb210369154143bd3be0c3d913837
+      internalID: 788663768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: bf6b0317a3131b7479752437df1eb972
     internalID: 0
     vertices: []
     indices: 
@@ -847,36 +891,40 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Dead_anin_0: 2752677570131296368
       Dead_anin_1: -7187084846988961743
-      Dead_anin_10: 5124926992236636417
-      Dead_anin_11: 1000333006922845547
-      Dead_anin_12: -1645935973408497199
-      Dead_anin_13: -3253863016195834924
-      Dead_anin_14: 8183292479567515952
-      Dead_anin_15: -8619923052201247513
-      Dead_anin_16: -3402265599394419889
-      Dead_anin_17: 3114681970631962110
-      Dead_anin_18: -6464723349712112127
-      Dead_anin_19: 2459211277210418402
+      Dead_anin_10: 8183292479567515952
+      Dead_anin_11: -3402265599394419889
+      Dead_anin_12: -5243863554896055227
+      Dead_anin_13: 5891360408502130973
+      Dead_anin_14: -8175452489565908074
+      Dead_anin_15: 8906382540693621786
+      Dead_anin_16: 8087239275314989009
+      Dead_anin_17: -3253863016195834924
+      Dead_anin_18: 5124926992236636417
+      Dead_anin_19: -1645935973408497199
       Dead_anin_2: -8162589282257595919
-      Dead_anin_20: -5243863554896055227
-      Dead_anin_21: 6739011637104703514
-      Dead_anin_22: 7767110605308991889
-      Dead_anin_23: 5891360408502130973
-      Dead_anin_24: -6452175034975169088
-      Dead_anin_25: -8175452489565908074
-      Dead_anin_26: 8906382540693621786
+      Dead_anin_20: -8619923052201247513
+      Dead_anin_21: 3114681970631962110
+      Dead_anin_22: 6739011637104703514
+      Dead_anin_23: -6452175034975169088
+      Dead_anin_24: -6464723349712112127
+      Dead_anin_25: 2459211277210418402
+      Dead_anin_26: 7767110605308991889
       Dead_anin_27: 2729055203640343324
+      Dead_anin_28: -101962546
+      Dead_anin_29: 788663768
       Dead_anin_3: -8958642717688696281
       Dead_anin_4: 7254148425116814026
       Dead_anin_5: -8209734605134524516
       Dead_anin_6: -7676274545486798449
       Dead_anin_7: -1757602260115192587
       Dead_anin_8: -3965076857344461726
-      Dead_anin_9: 8087239275314989009
+      Dead_anin_9: 1000333006922845547
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

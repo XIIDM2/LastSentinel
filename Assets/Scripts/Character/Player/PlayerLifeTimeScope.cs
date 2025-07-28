@@ -2,11 +2,11 @@ using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-public class PlayerLifeTimeScope : CharacterLifeScope
+public class PlayerLifeTimeScope : LifetimeScope
 {
     [SerializeField] private CharacterData playerData;
 
-    protected override void ConfigureCharacterSpecifics(IContainerBuilder builder)
+    protected override void Configure(IContainerBuilder builder)
     {
         builder.RegisterInstance(playerData);
 

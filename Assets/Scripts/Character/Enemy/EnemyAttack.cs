@@ -8,9 +8,9 @@ public class EnemyAttack : MonoBehaviour, IPerformAttack
 
     [Header("Attack")]
     [SerializeField] private Transform AttackPoint;
-    private int attackDamage;
-    private float attackRadius;
-    private bool isAttacking;
+    [SerializeField] private int attackDamage;
+    [SerializeField] private float attackRadius;
+    private bool isAttacking = false;
 
     private LayerMask playerLayer;
 
@@ -26,13 +26,20 @@ public class EnemyAttack : MonoBehaviour, IPerformAttack
         playerLayer = LayerMask.GetMask("Player");
     }
 
+    public void ReverseAttackState()
+    {
+        isAttacking = !isAttacking;
+    }
+
+
+
     public void Attack()
     {
         Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(AttackPoint.position, attackRadius, playerLayer);
 
         for (int i = 0; i < enemiesHit.Length; i++)
         {
-            if (enemiesHit[i].TryGetComponent<Health>(out Health health))
+            if (enemiesHit[i].transform.root.TryGetComponent<Health>(out Health health))
             {
                 health.TakeDamage(attackDamage);
             }

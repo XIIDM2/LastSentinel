@@ -4,13 +4,15 @@ using VContainer;
 public class EnemyAnimation : MonoBehaviour
 {
     private Animator animator;
+    private EnemyAttack enemyAttack;
     private Health health;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
 
-        health = GetComponent<Health>();
+        health = transform.root.GetComponent<Health>();
+        enemyAttack = transform.root.GetComponent<EnemyAttack>();
     }
 
     private void OnEnable()
@@ -22,6 +24,16 @@ public class EnemyAnimation : MonoBehaviour
     {
         health.HealthDamaged -= OnHit;
         health.Death -= OnDeath;
+    }
+
+    public void ReverseAttackStateEvent()
+    {
+        enemyAttack.ReverseAttackState();
+    }
+
+    public void AttackEvent()
+    {
+        enemyAttack.Attack();
     }
 
     public void OnAttack()

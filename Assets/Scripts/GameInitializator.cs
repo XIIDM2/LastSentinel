@@ -38,12 +38,11 @@ public class GameInitializator : MonoBehaviour
 
         level = await Addressables.InstantiateAsync(levelPrefab).ToUniTask();
         player = await Addressables.InstantiateAsync(playerPrefab).ToUniTask();
-
-
     }
 
     private void PrepareLevel()
     {
        player.transform.position = new Vector3(-9.0f, -2.4f, 0);
     }
+
 }

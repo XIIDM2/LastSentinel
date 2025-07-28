@@ -2,19 +2,9 @@ using System.Collections;
 using UnityEngine;
 using VContainer;
 
-public enum EnemyState
-{ 
-    Idle,
-    RunToTarget,
-    AttackTarget,
-    Jump,
-    Dead,
-}
-
 public class EnemyBehaviour : MonoBehaviour
 {
-
-    [SerializeField] private float stopDistance = 1.0f;
+    [SerializeField] protected float stopDistance = 1.0f;
 
     [Header("WallCheck")]
     [SerializeField] private Transform wallCheck;
@@ -26,26 +16,26 @@ public class EnemyBehaviour : MonoBehaviour
     private float jumpCoolDown = 1.0f;
     private float lastJumpTime = float.MinValue;
 
-    private float attackCoolDown;
-    private float lastAttackTime = float.MinValue;
+    protected float attackCoolDown;
+    protected float lastAttackTime = float.MinValue;
 
     [Header("Components")]
-    private EnemyState currentState;
+    protected EnemyState currentState;
 
-    private EnemyDetection enemyDetection;
-    private EnemyMovement enemyMovement;
-    private EnemyAttack enemyAttack;
+    protected EnemyDetection enemyDetection;
+    protected EnemyMovement enemyMovement;
+    protected EnemyAttack enemyAttack;
     private EnemyAnimation enemyAnimation;
     private Health health;
 
-    [Inject] private CharacterData characterData;
+    [Inject] protected CharacterData characterData;
 
     private void Awake()
     {
         enemyDetection = GetComponentInChildren<EnemyDetection>();
         enemyMovement = GetComponent<EnemyMovement>();
         enemyAttack = GetComponent<EnemyAttack>();
-        enemyAnimation = GetComponent<EnemyAnimation>();
+        enemyAnimation = GetComponentInChildren<EnemyAnimation>();
         health = GetComponent<Health>();
     }
 
@@ -59,7 +49,7 @@ public class EnemyBehaviour : MonoBehaviour
         health.Death -= onDeath;
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         groundLayer = LayerMask.GetMask("Ground");
 
@@ -71,7 +61,7 @@ public class EnemyBehaviour : MonoBehaviour
     private void Update()
     {
         UpdateState();
-
+        Debug.Log(currentState);
         switch (currentState)
         {
             case EnemyState.Idle:
@@ -89,7 +79,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         switch (currentState)
         {
@@ -97,7 +87,7 @@ public class EnemyBehaviour : MonoBehaviour
                 enemyMovement.MoveToTarget(enemyDetection.Target);
                 break;
             case EnemyState.Jump:
-                if (Time.time >= lastJumpTime + jumpCoolDown)
+                if (enemyMovement.GetGroundCheck() && Time.time >= lastJumpTime + jumpCoolDown)
                 {
                     enemyMovement.Jump();
                     lastJumpTime = Time.time;
@@ -106,13 +96,13 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    private void UpdateState()
+    protected virtual void UpdateState()
     {
         if (currentState == EnemyState.Dead) return;
 
         if (enemyDetection.Target != null)
         {
-            if (Vector2.Distance(enemyDetection.Target.position, gameObject.transform.position) > stopDistance)
+            if (!enemyAttack.IsAttacking && Vector2.Distance(enemyDetection.Target.position, gameObject.transform.position) > stopDistance)
             {
                 SetState(EnemyState.RunToTarget);
             }
@@ -134,7 +124,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    private void SetState(EnemyState enemyState)
+    protected void SetState(EnemyState enemyState)
     {
         if (enemyState == currentState) return;
 
@@ -145,14 +135,19 @@ public class EnemyBehaviour : MonoBehaviour
     {
         SetState(EnemyState.Dead);
 
+        enemyMovement.StopMove();
+
         enemyDetection.enabled = false;
         enemyMovement.enabled = false;
         enemyAttack.enabled = false;
     }
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(wallCheck.position, wallCheckSize);
+        if (wallCheck != null)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireCube(wallCheck.position, wallCheckSize);
+        }
     }
 
 }

@@ -31,7 +31,7 @@ public class PlayerAttack : MonoBehaviour, IPerformAttack
         attackDamage = characterData.AttackDamage;
         attackRadius = characterData.AttackRadius;
 
-        enemyLayer = LayerMask.GetMask("Enemy");
+        enemyLayer = LayerMask.GetMask("Enemy", "BossDeath");
     }
 
     private void OnEnable()
@@ -52,7 +52,7 @@ public class PlayerAttack : MonoBehaviour, IPerformAttack
 
         for (int i = 0; i < enemiesHit.Length; i++)
         {
-            if (enemiesHit[i].TryGetComponent<Health>(out Health health))
+            if (enemiesHit[i].transform.root.TryGetComponent<Health>(out Health health))
             {
                 health.TakeDamage(attackDamage);
             }

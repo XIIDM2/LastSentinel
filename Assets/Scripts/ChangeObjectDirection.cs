@@ -1,13 +1,11 @@
 using UnityEngine;
 using VContainer;
 
-public class ChangeVisualDirection : MonoBehaviour
+public class ChangeObjectDirection : MonoBehaviour
 {
     private const float thresHold = 0.001f;
-
-    [Inject] private SpriteRenderer spriteRenderer;
-
-    public void FlipSpriteDirection(float value)
+    
+    public void FaceDirection(float value)
     {
         Vector3 transformScale = transform.localScale;
 

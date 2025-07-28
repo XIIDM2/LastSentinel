@@ -2,11 +2,11 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerInput))]
 public class PlayerInputController : MonoBehaviour
 {
-    public event Action<float> horizontalMovement;
+    public event Action<float> horizontalInputValue;
     public event Action OnJumpPressed;
-    public event Action OnJumpReleased;
     public event Action OnAttackPressed;
     public event Action OnAttackReleased;
 
@@ -16,6 +16,10 @@ public class PlayerInputController : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
 
+        if (playerInput.notificationBehavior != PlayerNotifications.InvokeCSharpEvents)
+        {
+            Debug.LogError("Wrong Player Input Behavior for onActionTriggerEvents, please switch to 'Invoke C# Events' ");
+        }
     }
 
     private void OnEnable()
@@ -33,16 +37,12 @@ public class PlayerInputController : MonoBehaviour
         switch (context.action.name)
         {
             case "Move":
-                horizontalMovement?.Invoke(context.ReadValue<Vector2>().x);
+                horizontalInputValue?.Invoke(context.ReadValue<Vector2>().x);
                 break;
             case "Jump":
                 if (context.started)
                 {
                     OnJumpPressed?.Invoke();
-                }
-                else if (context.canceled)
-                {
-                    OnJumpReleased?.Invoke();
                 }
                 break;
             case "Attack":

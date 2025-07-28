@@ -6,28 +6,34 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Links")]
     public float HorizontalVelocity => rigidBody.linearVelocityX;
-    public bool IsOnGround => isOnGround;
-    public bool IsJumping => isJumping;
-    public bool IsMoving => isMoving;
+    public bool Grounded => grounded;
 
     [Header("Ground")]
     [SerializeField] private Transform groundCheck;
     private Vector2 groundBoxSize = new Vector2(0.5f, 0.1f);
     private LayerMask groundLayer;
-    private bool isOnGround => Physics2D.OverlapBox(groundCheck.position, groundBoxSize, 0.0f, groundLayer);
+    private bool grounded => Physics2D.OverlapBox(groundCheck.position, groundBoxSize, 0.0f, groundLayer);
+    private float lastGroundedTime;
 
     [Header("Jump")]
     private float jumpForce = 15.0f;
-    private bool isJumping;
+    private float lastJumpPressedTime = float.MinValue;
+    private float jumpBufferTime = 0.2f;
+    private bool isJumpBuffered => Time.time - lastJumpPressedTime <= jumpBufferTime;
+
+    [Header("Coyote Jump")]
+    private float coyoteJumpTime = 0.2f;
+    private bool canCoyoteJump => (Time.time - lastGroundedTime) <= coyoteJumpTime;
+
+    private bool jumped;
 
     [Header("Movement")]
     private float movementSpeed;
-    private float horizontalInput;
-    private bool isMoving => Mathf.Abs(rigidBody.linearVelocityX) > 0.01;
+    private float horizontalInputValue;
 
     [Header("Components")]
     private Rigidbody2D rigidBody;
-    private ChangeVisualDirection changeVisualDirection;
+    private ChangeObjectDirection playerDirection;
     private PlayerInputController playerInputController;
 
     [Inject] private CharacterData characterData;
@@ -35,44 +41,51 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+
         playerInputController = GetComponent<PlayerInputController>();
-        changeVisualDirection = GetComponent<ChangeVisualDirection>();
+        playerDirection = GetComponent<ChangeObjectDirection>();
     }
 
     private void Start()
     {
         movementSpeed = characterData.MovementSpeed;
-        jumpForce = characterData.JumpForce;
+        jumpForce = characterData.JumpHeight;
 
         groundLayer = LayerMask.GetMask("Ground"); 
     }
 
     private void OnEnable()
     {
-        playerInputController.horizontalMovement += HandleHorizontalMovement;
+        playerInputController.horizontalInputValue += HandleHorizontalInputValue;
         playerInputController.OnJumpPressed += HandleJumpPressed;
-        playerInputController.OnJumpReleased += HandleJumpReleased;
     }
 
     private void OnDisable()
     {
-        playerInputController.horizontalMovement -= HandleHorizontalMovement;
+        playerInputController.horizontalInputValue -= HandleHorizontalInputValue;
         playerInputController.OnJumpPressed -= HandleJumpPressed;
-        playerInputController.OnJumpReleased -= HandleJumpReleased;
     }
 
     private void Update()
     {
-        changeVisualDirection.FlipSpriteDirection(rigidBody.linearVelocityX);
+        playerDirection.FaceDirection(rigidBody.linearVelocityX);
     }
 
     private void FixedUpdate()
     {
-        rigidBody.linearVelocityX = horizontalInput * movementSpeed;
+        rigidBody.linearVelocityX = horizontalInputValue * movementSpeed;
 
-        if (isOnGround && isJumping)
+        if (grounded)
         {
+            lastGroundedTime = Time.time;
+            jumped = false;
+        }
+
+        if (!jumped && isJumpBuffered && (grounded || canCoyoteJump))
+        {
+            lastJumpPressedTime = float.MinValue;
             TryJump();
+            jumped = true;
         }
     }
 
@@ -81,19 +94,14 @@ public class PlayerMovement : MonoBehaviour
         rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 
-    private void HandleHorizontalMovement(float horizontalInput)
+    private void HandleHorizontalInputValue(float horizontalInputValue)
     {
-        this.horizontalInput = horizontalInput;
+        this.horizontalInputValue = horizontalInputValue;
     }
 
     private void HandleJumpPressed()
     {
-        isJumping = true;
-    }
-
-    private void HandleJumpReleased()
-    {
-        isJumping = false;
+        lastJumpPressedTime = Time.time;
     }
 
     private void OnDrawGizmosSelected()

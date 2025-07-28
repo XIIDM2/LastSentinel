@@ -3,44 +3,46 @@ using VContainer;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public bool IsMoving => rigidBody.linearVelocityX <= 0.01f;
-    public bool IsOnGround => isOnGround;
-
     [SerializeField] private Transform groundCheck;
 
     private float jumpForce = 15.0f;
-    private float movementSpeed;
+    protected float movementSpeed;
 
     private Vector2 groundBoxSize = new Vector2(0.5f, 0.1f);
     private LayerMask groundLayer;
-    private bool isOnGround => Physics2D.OverlapBox(groundCheck.position, groundBoxSize, 0.0f, groundLayer);
+    private bool grounded => Physics2D.OverlapBox(groundCheck.position, groundBoxSize, 0.0f, groundLayer);
 
-    private Rigidbody2D rigidBody;
-    private ChangeVisualDirection visualDirection;
+    protected Rigidbody2D rigidBody;
+    private ChangeObjectDirection visualDirection;
 
-    [Inject] private CharacterData characterData;
+    [Inject] protected CharacterData characterData;
 
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
 
-        visualDirection = GetComponent<ChangeVisualDirection>();
+        visualDirection = GetComponent<ChangeObjectDirection>();
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         movementSpeed = characterData.MovementSpeed;
-        jumpForce = characterData.JumpForce;
+        jumpForce = characterData.JumpHeight;
 
         groundLayer = LayerMask.GetMask("Ground");
     }
 
     private void Update()
     {
-        visualDirection.FlipSpriteDirection(rigidBody.linearVelocityX);
+        visualDirection.FaceDirection(rigidBody.linearVelocityX);
     }
 
-    public void MoveToTarget(Transform target)
+    public bool GetGroundCheck()
+    {
+        return grounded;
+    }
+
+    public virtual void MoveToTarget(Transform target)
     {
         Vector2 targetDirection = (target.position - transform.position).normalized;
 
@@ -48,7 +50,7 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
-    public void MoveFromTarget(Transform target)
+    public virtual void MoveFromTarget(Transform target)
     {
         Vector2 targetDirection = (target.position - transform.position).normalized;
 
@@ -56,14 +58,14 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
-    public void StopMove()
+    public virtual void StopMove()
     {
         rigidBody.linearVelocityX = 0.0f;
     }
 
     public void Jump()
     {
-        if (isOnGround)
+        if (grounded)
         {
             rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
@@ -71,7 +73,10 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(groundCheck.position, groundBoxSize);
+        if (groundCheck != null)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireCube(groundCheck.position, groundBoxSize);
+        }
     }
 }
