@@ -13,7 +13,7 @@ public class PlayerAnimation : CharacterAnimation
 
     private void Update()
     {
-        animator.SetFloat("movementSpeed", Mathf.Abs(playerMovement.Velocity.x));
+        animator.SetFloat("movementSpeed", Mathf.Abs(playerMovement.GetVelocity().x));
         animator.SetBool("isOnGround", playerMovement.IsGrounded);
         animator.SetBool("isAttacking", characterAttack.IsAttacking);
     }

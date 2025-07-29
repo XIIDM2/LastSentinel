@@ -20,13 +20,13 @@ public class CharacterMovement : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] protected float movementSpeed;
-    public Vector2 Velocity
+    protected Vector2 Velocity
     {
         get
         {
             return rigidBody.linearVelocity;
         }
-        protected set
+        set
         {
             rigidBody.linearVelocity = value;
         }
@@ -57,6 +57,11 @@ public class CharacterMovement : MonoBehaviour
     private void Update()
     {
         characterDirection.FaceDirection(rigidBody.linearVelocityX);
+    }
+
+    public Vector2 GetVelocity()
+    {
+        return Velocity;
     }
 
     public void TryJump()

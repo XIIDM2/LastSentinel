@@ -1,4 +1,3 @@
-using UnityEditor.U2D.Animation;
 using UnityEngine;
 
 public class DeathBehaviour : EnemyBehaviour
@@ -15,7 +14,7 @@ public class DeathBehaviour : EnemyBehaviour
         switch (currentState)
         {
             case EnemyState.RunToTarget:
-                enemyMovement.MoveToTarget(enemyDetection.Target);
+                enemyMovement.MoveToTarget(enemyDetection.GetTarget());
                 break;
         }
     }
@@ -24,14 +23,14 @@ public class DeathBehaviour : EnemyBehaviour
     {
         if (currentState == EnemyState.Dead) return;
 
-        if (enemyDetection.Target != null)
+        if (enemyDetection.HasTarget)
         {
-            if (!enemyAttack.IsAttacking && Vector2.Distance(enemyDetection.Target.position, gameObject.transform.position) > stopDistance)
+            if (!enemyAttack.IsAttacking && Vector2.Distance(enemyDetection.GetTarget().position, gameObject.transform.position) > stopDistance)
             {
                 SetState(EnemyState.RunToTarget);
             }
 
-            if (Vector2.Distance(enemyDetection.Target.position, gameObject.transform.position) < stopDistance)
+            if (Vector2.Distance(enemyDetection.GetTarget().position, gameObject.transform.position) < stopDistance)
             {
                 SetState(EnemyState.AttackTarget);
             }

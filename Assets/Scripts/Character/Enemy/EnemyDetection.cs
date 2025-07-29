@@ -1,17 +1,15 @@
-using System.Diagnostics.Tracing;
 using UnityEngine;
-using UnityEngine.Events;
 
 [RequireComponent(typeof(CircleCollider2D))]
 public class EnemyDetection : MonoBehaviour
 {
-    public Transform Target => target;
+    public bool HasTarget => target != null;
 
     [SerializeField] private float radius = 3.0f;
 
     private Transform target;
 
-    private LayerMask playerLayer;
+    private int playerLayerIndex;
 
     private CircleCollider2D circleCollider;
 
@@ -25,12 +23,17 @@ public class EnemyDetection : MonoBehaviour
         circleCollider.radius = radius;
         circleCollider.isTrigger = true;
 
-        playerLayer = LayerMask.NameToLayer("Player");
+        playerLayerIndex = LayerMask.NameToLayer("Player");
+
+        if (playerLayerIndex == -1)
+        {
+            Debug.LogError($"Layer 'Player' not found! create Player layer in Tags & Layers. {gameObject.name} - {this}");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == playerLayer)
+        if (collision.gameObject.layer == playerLayerIndex)
         {
             target = collision.transform;
         }
@@ -42,6 +45,11 @@ public class EnemyDetection : MonoBehaviour
         {
             target = null;
         }
+    }
+
+    public Transform GetTarget()
+    {
+        return target;
     }
 
     private void OnDrawGizmosSelected()

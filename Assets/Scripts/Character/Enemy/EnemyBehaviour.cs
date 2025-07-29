@@ -11,7 +11,7 @@ public class EnemyBehaviour : MonoBehaviour
     private bool isStuckInWall => Physics2D.OverlapBox(wallCheck.position, wallCheckSize, 0.0f, groundLayer);
 
     private LayerMask groundLayer;
-
+    [Header("CoolDowns")]
     [SerializeField] private float jumpCoolDown = 1.0f;
     private float lastJumpTime = float.MinValue;
 
@@ -82,7 +82,7 @@ public class EnemyBehaviour : MonoBehaviour
         switch (currentState)
         {
             case EnemyState.RunToTarget:
-                enemyMovement.MoveToTarget(enemyDetection.Target);
+                enemyMovement.MoveToTarget(enemyDetection.GetTarget());
                 break;
             case EnemyState.Jump:
                 if (enemyMovement.IsGrounded && Time.time >= lastJumpTime + jumpCoolDown)
@@ -98,14 +98,14 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (currentState == EnemyState.Dead) return;
 
-        if (enemyDetection.Target != null)
+        if (enemyDetection.HasTarget)
         {
-            if (!enemyAttack.IsAttacking && Vector2.Distance(enemyDetection.Target.position, gameObject.transform.position) > stopDistance)
+            if (!enemyAttack.IsAttacking && Vector2.Distance(enemyDetection.GetTarget().position, gameObject.transform.position) > stopDistance)
             {
                 SetState(EnemyState.RunToTarget);
             }
 
-            if (Vector2.Distance(enemyDetection.Target.position, gameObject.transform.position) < stopDistance)
+            if (Vector2.Distance(enemyDetection.GetTarget().position, gameObject.transform.position) < stopDistance)
             {
                 SetState(EnemyState.AttackTarget);
             }

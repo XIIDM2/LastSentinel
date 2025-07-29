@@ -2093,6 +2093,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stopDistance: 1
   wallCheck: {fileID: 0}
+  wallCheckSize: {x: 0.3, y: 0.9}
+  jumpCoolDown: 1
+  attackCoolDown: 0
 --- !u!1001 &3422780431069298505
 PrefabInstance:
   m_ObjectHideFlags: 0

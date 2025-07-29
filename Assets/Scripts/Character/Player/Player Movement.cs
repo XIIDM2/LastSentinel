@@ -6,10 +6,9 @@ public class PlayerMovement : CharacterMovement
     [Header("Ground")]
     private float lastGroundedTime;
 
-    [Header("Jump")]
-    private float lastJumpPressedTime = float.MinValue;
-
+    [Header("Buffered Jump")]
     [SerializeField] private float jumpBufferTime = 0.2f;
+    private float lastJumpPressedTime = float.MinValue;
     private bool isJumpBuffered => Time.time - lastJumpPressedTime <= jumpBufferTime;
 
     [Header("Coyote Jump")]
@@ -18,7 +17,7 @@ public class PlayerMovement : CharacterMovement
 
     private bool hasJumped;
 
-    [Header("Movement")]
+    [Header("Movement Input")]
     [SerializeField] private float horizontalInput;
 
     [Header("Components")]
