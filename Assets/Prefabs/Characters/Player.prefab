@@ -291,7 +291,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed65ba08b36361e46ab840cf2e3a45b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundCheck: {fileID: 2691853374693295322}
+  groundCheckTransform: {fileID: 2691853374693295322}
+  groundBoxSize: {x: 0.5, y: 0.1}
+  jumpForce: 15
+  movementSpeed: 0
+  jumpBufferTime: 0.2
+  coyoteJumpTime: 0.2
+  horizontalInput: 0
 --- !u!114 &7212519902069809532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,6 +311,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackPoint: {fileID: 4501012742723842032}
+  attackDamage: 0
+  attackRadius: 0
 --- !u!114 &2322975767960120663
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,7 +34,7 @@ public class Health : MonoBehaviour
 
     public void HealDamage(int amount)
     {
-        if (currentHealth <= 0 || currentHealth >= 0) return;
+        if (currentHealth <= 0 || currentHealth >= maxHealth) return;
 
         currentHealth += amount;
     }
