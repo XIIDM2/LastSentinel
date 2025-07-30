@@ -4,36 +4,36 @@ using VContainer;
 public abstract class CharacterAttack : MonoBehaviour
 {
     [Header("Links")]
-    public bool IsAttacking => isAttacking;
+    public bool IsAttacking => _isAttacking;
 
     [Header("Attack")]
-    [SerializeField] private Transform AttackPoint;
-    [SerializeField] private int attackDamage;
-    [SerializeField] private float attackRadius;
+    [SerializeField] private Transform _AttackPoint;
+    [SerializeField] private int _attackDamage;
+    [SerializeField] private float _attackRadius;
 
-    protected bool isAttacking;
+    protected bool _isAttacking;
 
-    protected LayerMask enemyLayer;
+    protected LayerMask _enemyLayer;
 
     [Inject] private readonly CharacterData characterData;
 
     private void Start()
     {
-        attackDamage = characterData.AttackDamage;
-        attackRadius = characterData.AttackRadius;
+        _attackDamage = characterData.AttackDamage;
+        _attackRadius = characterData.AttackRadius;
 
         SetLayersToHit();
     }
 
     public void Attack()
     {
-        Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(AttackPoint.position, attackRadius, enemyLayer);
+        Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(_AttackPoint.position, _attackRadius, _enemyLayer);
 
         for (int i = 0; i < enemiesHit.Length; i++)
         {
             if (enemiesHit[i].transform.root.TryGetComponent<Health>(out Health health))
             {
-                health.TakeDamage(attackDamage);
+                health.TakeDamage(_attackDamage);
             }
         }
     }
@@ -43,6 +43,6 @@ public abstract class CharacterAttack : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(AttackPoint.position, attackRadius);
+        Gizmos.DrawWireSphere(_AttackPoint.position, _attackRadius);
     }
 }

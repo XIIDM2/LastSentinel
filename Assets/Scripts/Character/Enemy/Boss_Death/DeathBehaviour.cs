@@ -4,33 +4,33 @@ public class DeathBehaviour : EnemyBehaviour
 {
     protected override void Start()
     {
-        attackCoolDown = characterData.AttackCooldown;
+        _attackCoolDown = _characterData.AttackCooldown;
 
         SetState(EnemyState.Idle);
     }
 
     protected override void FixedUpdate()
     {
-        switch (currentState)
+        switch (_currentState)
         {
             case EnemyState.RunToTarget:
-                enemyMovement.MoveToTarget(enemyDetection.GetTarget());
+                _enemyMovement.MoveToTarget(_enemyDetection.GetTarget());
                 break;
         }
     }
 
     protected override void UpdateState()
     {
-        if (currentState == EnemyState.Dead) return;
+        if (_currentState == EnemyState.Dead) return;
 
-        if (enemyDetection.HasTarget)
+        if (_enemyDetection.HasTarget)
         {
-            if (!enemyAttack.IsAttacking && Vector2.Distance(enemyDetection.GetTarget().position, gameObject.transform.position) > stopDistance)
+            if (!_enemyAttack.IsAttacking && Vector2.Distance(_enemyDetection.GetTarget().position, gameObject.transform.position) > _stopDistance)
             {
                 SetState(EnemyState.RunToTarget);
             }
 
-            if (Vector2.Distance(enemyDetection.GetTarget().position, gameObject.transform.position) < stopDistance)
+            if (Vector2.Distance(_enemyDetection.GetTarget().position, gameObject.transform.position) < _stopDistance)
             {
                 SetState(EnemyState.AttackTarget);
             }

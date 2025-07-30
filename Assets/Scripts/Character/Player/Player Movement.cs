@@ -4,71 +4,81 @@ using UnityEngine;
 public class PlayerMovement : CharacterMovement
 {
     [Header("Ground")]
-    private float lastGroundedTime;
+    private float _lastGroundedTime;
 
     [Header("Buffered Jump")]
-    [SerializeField] private float jumpBufferTime = 0.2f;
-    private float lastJumpPressedTime = float.MinValue;
-    private bool isJumpBuffered => Time.time - lastJumpPressedTime <= jumpBufferTime;
+    [SerializeField] private float _jumpBufferTime = 0.2f;
+    private float _lastJumpPressedTime = float.MinValue;
+    private bool _isJumpBuffered => Time.time - _lastJumpPressedTime <= _jumpBufferTime;
 
     [Header("Coyote Jump")]
-    [SerializeField] private float coyoteJumpTime = 0.2f;
-    private bool canCoyoteJump => (Time.time - lastGroundedTime) <= coyoteJumpTime;
+    [SerializeField] private float _coyoteJumpTime = 0.2f;
+    private bool _canCoyoteJump => (Time.time - _lastGroundedTime) <= _coyoteJumpTime;
 
-    private bool hasJumped;
+    [Header("Jump Cut")]
+    [SerializeField, Range(0f, 1f)] private float _jumpCutValue = 0.2f;
+
+    private bool _hasJumped;
 
     [Header("Movement Input")]
-    [SerializeField] private float horizontalInput;
+    [SerializeField] private float _horizontalInput;
 
     [Header("Components")]
-    private PlayerInputController playerInputController;
+    private PlayerInputController _playerInputController;
 
 
     protected override void Awake()
     {
         base.Awake();
 
-        playerInputController = GetComponent<PlayerInputController>();
+        _playerInputController = GetComponent<PlayerInputController>();
     }
 
     private void OnEnable()
     {
-        playerInputController.MovementInput += HandleHorizontalInputValue;
-        playerInputController.OnJumpPressed += HandleJumpPressed;
+        _playerInputController.MovementInput += HandleHorizontalInputValue;
+        _playerInputController.OnJumpPressed += HandleJumpPressed;
+        _playerInputController.OnJumpReleased += HandleJumpReleased;
     }
 
     private void OnDisable()
     {
-        playerInputController.MovementInput -= HandleHorizontalInputValue;
-        playerInputController.OnJumpPressed -= HandleJumpPressed;
+        _playerInputController.MovementInput -= HandleHorizontalInputValue;
+        _playerInputController.OnJumpPressed -= HandleJumpPressed;
+        _playerInputController.OnJumpReleased -= HandleJumpReleased;
     }
 
 
     private void FixedUpdate()
     {
-        Velocity =  new Vector2 (horizontalInput * movementSpeed, Velocity.y);
+        _velocity =  new Vector2 (_horizontalInput * _movementSpeed, _velocity.y);
 
-        if (isGrounded)
+        if (_isGrounded)
         {
-            lastGroundedTime = Time.time;
-            hasJumped = false;
+            _lastGroundedTime = Time.time;
+            _hasJumped = false;
         }
 
-        if (!hasJumped && isJumpBuffered && (isGrounded || canCoyoteJump))
+        if (!_hasJumped && _isJumpBuffered && (_isGrounded || _canCoyoteJump))
         {
-            lastJumpPressedTime = float.MinValue;
+            _lastJumpPressedTime = float.MinValue;
             TryJump();
-            hasJumped = true;
+            _hasJumped = true;
         }
     }
 
     private void HandleHorizontalInputValue(Vector2 horizontalInputValue)
     {
-        this.horizontalInput = horizontalInputValue.x;
+        _horizontalInput = horizontalInputValue.x;
     }
 
     private void HandleJumpPressed()
     {
-        lastJumpPressedTime = Time.time;
+        _lastJumpPressedTime = Time.time;
+    }
+
+    private void HandleJumpReleased()
+    {
+        if (_velocity.y > 0)  _velocity = new Vector2(_velocity.x, _velocity.y * _jumpCutValue);
     }
 }

@@ -4,37 +4,37 @@ using UnityEngine;
 public class PlayerAttack : CharacterAttack
 {
     [Header("Components")]
-    private PlayerInputController playerInputController;
+    private PlayerInputController _playerInputController;
 
     private void Awake()
     {
-        playerInputController = GetComponent<PlayerInputController>();
+        _playerInputController = GetComponent<PlayerInputController>();
     }
 
     private void OnEnable()
     {
-        playerInputController.OnAttackPressed += HandleAttackPressed;
-        playerInputController.OnAttackReleased += HandleAttackReleased;
+        _playerInputController.OnAttackPressed += HandleAttackPressed;
+        _playerInputController.OnAttackReleased += HandleAttackReleased;
     }
 
     private void OnDisable()
     {
-        playerInputController.OnAttackPressed -= HandleAttackPressed;
-        playerInputController.OnAttackReleased -= HandleAttackReleased;
+        _playerInputController.OnAttackPressed -= HandleAttackPressed;
+        _playerInputController.OnAttackReleased -= HandleAttackReleased;
     }
 
     protected override void SetLayersToHit()
     {
-        enemyLayer = LayerMask.GetMask("Enemy", "BossDeath");
+        _enemyLayer = LayerMask.GetMask("Enemy", "BossDeath");
     }
 
     private void HandleAttackPressed()
     {
-        isAttacking = true;
+        _isAttacking = true;
     }
 
     private void HandleAttackReleased()
     {
-        isAttacking = false;
+        _isAttacking = false;
     }
 }

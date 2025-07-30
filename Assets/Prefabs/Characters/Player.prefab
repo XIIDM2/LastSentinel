@@ -291,13 +291,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed65ba08b36361e46ab840cf2e3a45b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundCheckTransform: {fileID: 2691853374693295322}
-  groundBoxSize: {x: 0.5, y: 0.1}
-  jumpForce: 15
-  movementSpeed: 0
-  jumpBufferTime: 0.2
-  coyoteJumpTime: 0.2
-  horizontalInput: 0
+  _groundCheckTransform: {fileID: 2691853374693295322}
+  _groundBoxSize: {x: 0.5, y: 0.1}
+  _jumpForce: 15
+  _movementSpeed: 0
+  _jumpBufferTime: 0.2
+  _coyoteJumpTime: 0.2
+  _horizontalInput: 0
 --- !u!114 &7212519902069809532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,9 +310,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62387baf9b9dab347970ef8cbe1b9b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackPoint: {fileID: 4501012742723842032}
-  attackDamage: 0
-  attackRadius: 0
+  _AttackPoint: {fileID: 4501012742723842032}
+  _attackDamage: 0
+  _attackRadius: 0
 --- !u!114 &2322975767960120663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,7 +354,7 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects:
   - {fileID: 4713836438149436050}
-  enemyData: {fileID: 11400000, guid: 44ae2844702567f4f804994f29bb2060, type: 2}
+  _enemyData: {fileID: 11400000, guid: 44ae2844702567f4f804994f29bb2060, type: 2}
 --- !u!1 &6580188543923095188
 GameObject:
   m_ObjectHideFlags: 0

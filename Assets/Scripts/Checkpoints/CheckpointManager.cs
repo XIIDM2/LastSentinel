@@ -4,66 +4,65 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class CheckpointManager : MonoBehaviour
 {
-    [SerializeField] private Checkpoint[] checkpoints;
-    [SerializeField] private AssetReferenceGameObject playerPrefab;
+    [SerializeField] private Checkpoint[] _checkpoints;
+    [SerializeField] private AssetReferenceGameObject _playerPrefab;
 
-    private Vector2 currentSpawnpoint;
+    private Vector2 _currentSpawnpoint;
 
-    private GameObject currentPlayerInstance;
+    private GameObject _currentPlayerInstance;
 
-    private bool loadedFromAddressables = false; // Œ¡ﬂ«¿“≈À‹ÕŒ œŒ‘» —“»“‹, —ƒ≈À¿“‹ —œ¿¬Õ ◊≈–≈« ADDRESSABLES
+    private bool _loadedFromAddressables = false; // Œ¡ﬂ«¿“≈À‹ÕŒ œŒ‘» —“»“‹, —ƒ≈À¿“‹ —œ¿¬Õ ◊≈–≈« ADDRESSABLES
 
     private void Start()
     {
-        currentPlayerInstance = FindFirstObjectByType<PlayerController>().gameObject;
+        _currentPlayerInstance = FindFirstObjectByType<PlayerController>().gameObject;
 
-        if (checkpoints != null && checkpoints.Length > 0)
+        if (_checkpoints != null && _checkpoints.Length > 0)
         {
-            currentSpawnpoint = checkpoints[0].GetSpawnPointPosition();
+            _currentSpawnpoint = _checkpoints[0].GetSpawnPointPosition();
         }
-        Debug.Log(loadedFromAddressables);
     }
 
     private void OnEnable()
     {
-        foreach (Checkpoint checkpoint in checkpoints)
+        foreach (Checkpoint checkpoint in _checkpoints)
         {
-            checkpoint.PlayerEnteredCheckpoint += SetSpawnPoint;
+            checkpoint._PlayerEnteredCheckpoint += SetSpawnPoint;
         }
     }
 
     private void OnDisable()
     {
-        foreach (Checkpoint checkpoint in checkpoints)
+        foreach (Checkpoint checkpoint in _checkpoints)
         {
-            checkpoint.PlayerEnteredCheckpoint -= SetSpawnPoint;
+            checkpoint._PlayerEnteredCheckpoint -= SetSpawnPoint;
         }
     }
 
     public void SpawnPlayerAtPoint()
     {
-        if (currentPlayerInstance != null)
+        if (_currentPlayerInstance != null)
         {
-            if (!loadedFromAddressables)
+            if (!_loadedFromAddressables)
             {
-                Destroy(currentPlayerInstance);
+                Destroy(_currentPlayerInstance);
             }
             else
             {
-                Addressables.ReleaseInstance(currentPlayerInstance);
+                Addressables.ReleaseInstance(_currentPlayerInstance);
             }
 
         }
 
-        Addressables.InstantiateAsync(playerPrefab, currentSpawnpoint, Quaternion.identity).Completed += OnPlayerSpawned;
-        loadedFromAddressables = true;
+        Addressables.InstantiateAsync(_playerPrefab, _currentSpawnpoint, Quaternion.identity).Completed += OnPlayerSpawned;
+        _loadedFromAddressables = true;
     }
 
     private void OnPlayerSpawned(AsyncOperationHandle<GameObject> handle)
     {
         if (handle.Status == AsyncOperationStatus.Succeeded)
         {
-            currentPlayerInstance = handle.Result;
+            _currentPlayerInstance = handle.Result;
         }
         else
         {
@@ -73,6 +72,6 @@ public class CheckpointManager : MonoBehaviour
 
     private void SetSpawnPoint(Vector2 spawnpoint)
     {
-        currentSpawnpoint = spawnpoint;
+        _currentSpawnpoint = spawnpoint;
     }
 }

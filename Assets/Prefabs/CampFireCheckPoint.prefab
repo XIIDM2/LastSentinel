@@ -202,4 +202,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c73160e5ed31ea45b497c139ce595bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPointPosition: {fileID: 1439983812238063413}
+  _spawnPointPosition: {fileID: 1439983812238063413}

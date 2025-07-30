@@ -2,38 +2,38 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private PlayerMovement playerMovement;
-    private PlayerAttack playerAttack;
+    private PlayerMovement _playerMovement;
+    private PlayerAttack _playerAttack;
 
-    private Health health;
+    private Health _health;
 
     private void Awake()
     {
-        playerMovement = GetComponent<PlayerMovement>();
-        playerAttack = GetComponent<PlayerAttack>();
+        _playerMovement = GetComponent<PlayerMovement>();
+        _playerAttack = GetComponent<PlayerAttack>();
 
-        health = GetComponent<Health>();
+        _health = GetComponent<Health>();
     }
 
     private void Start()
     {
-        playerMovement.enabled = true;
-        playerAttack.enabled = true;
+        _playerMovement.enabled = true;
+        _playerAttack.enabled = true;
     }
 
     private void OnEnable()
     {
-        health.Death += OnDeath;
+        _health.Death += OnDeath;
     }
     private void OnDisable()
     {
-        health.Death -= OnDeath;
+        _health.Death -= OnDeath;
     }
 
     private void OnDeath()
     {
-        playerMovement.enabled = false;
-        playerAttack.enabled = false;
+        _playerMovement.enabled = false;
+        _playerAttack.enabled = false;
     }
 
 }

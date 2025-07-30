@@ -4,77 +4,77 @@ using VContainer;
 public class CharacterMovement : MonoBehaviour
 {
     [Header("Ground")]
-    public bool IsGrounded => isGrounded;
-    [SerializeField] protected Transform groundCheckTransform;
-    [SerializeField] protected Vector2 groundBoxSize = new Vector2(0.5f, 0.1f);
-    protected bool isGrounded => 
+    public bool IsGrounded => _isGrounded;
+    [SerializeField] protected Transform _groundCheckTransform;
+    [SerializeField] protected Vector2 _groundBoxSize = new Vector2(0.5f, 0.1f);
+    protected bool _isGrounded => 
     (
-        groundCheckTransform != null && 
-        Physics2D.OverlapBox(groundCheckTransform.position, groundBoxSize, 0.0f, groundLayer)
+        _groundCheckTransform != null && 
+        Physics2D.OverlapBox(_groundCheckTransform.position, _groundBoxSize, 0.0f, _groundLayer)
     );
 
-    protected LayerMask groundLayer;
+    protected LayerMask _groundLayer;
 
     [Header("Jump")]
-    [SerializeField] protected float jumpForce = 15.0f;
+    [SerializeField] protected float _jumpForce = 15.0f;
 
     [Header("Movement")]
-    [SerializeField] protected float movementSpeed;
-    protected Vector2 Velocity
+    [SerializeField] protected float _movementSpeed;
+    [property:SerializeField] protected Vector2 _velocity
     {
         get
         {
-            return rigidBody.linearVelocity;
+            return _rigidBody.linearVelocity;
         }
         set
         {
-            rigidBody.linearVelocity = value;
+            _rigidBody.linearVelocity = value;
         }
     }
 
 
     [Header("Components")]
-    protected Rigidbody2D rigidBody;
-    protected ChangeObjectDirection characterDirection;
+    protected Rigidbody2D _rigidBody;
+    protected ChangeObjectDirection _characterDirection;
 
-    [Inject] protected readonly CharacterData characterData;
+    [Inject] protected readonly CharacterData _characterData;
 
     protected virtual void Awake()
     {
-        rigidBody = GetComponent<Rigidbody2D>();
+        _rigidBody = GetComponent<Rigidbody2D>();
 
-        characterDirection = GetComponent<ChangeObjectDirection>();
+        _characterDirection = GetComponent<ChangeObjectDirection>();
     }
 
     private void Start()
     {
-        movementSpeed = characterData.MovementSpeed;
-        jumpForce = characterData.JumpHeight;
+        _movementSpeed = _characterData.MovementSpeed;
+        _jumpForce = _characterData.JumpHeight;
 
-        groundLayer = LayerMask.GetMask("Ground");
+        _groundLayer = LayerMask.GetMask("Ground");
     }
 
     private void Update()
     {
-        characterDirection.FaceDirection(rigidBody.linearVelocityX);
+        _characterDirection.FaceDirection(_rigidBody.linearVelocityX);
     }
 
     public Vector2 GetVelocity()
     {
-        return Velocity;
+        return _velocity;
     }
 
     public void TryJump()
     {
-        rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        _rigidBody.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
     }
 
     private void OnDrawGizmosSelected()
     {
-        if (groundCheckTransform != null)
+        if (_groundCheckTransform != null)
         {
             Gizmos.color = Color.yellow;
-            Gizmos.DrawWireCube(groundCheckTransform.position, groundBoxSize);
+            Gizmos.DrawWireCube(_groundCheckTransform.position, _groundBoxSize);
         }
     }
 }

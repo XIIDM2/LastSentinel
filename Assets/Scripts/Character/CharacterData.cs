@@ -3,17 +3,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CharacterData", menuName = "ScriptableObjects/CharacterData")]
 public class CharacterData : ScriptableObject
 {
-    [SerializeField] private int maxHealth;
-    [SerializeField] private float movementSpeed;
-    [SerializeField] private int jumpHeight;
-    [SerializeField] private int attackDamage;
-    [SerializeField] private float attackCooldown;
-    [SerializeField] private float attackRadius;
+    [SerializeField] private int _maxHealth;
+    [SerializeField] private float _movementSpeed;
+    [SerializeField] private int _jumpHeight;
+    [SerializeField] private int _attackDamage;
+    [SerializeField] private float _attackCooldown;
+    [SerializeField] private float _attackRadius;
 
-    public int MaxHealth => maxHealth;
-    public float MovementSpeed => movementSpeed;
-    public int JumpHeight => jumpHeight;
-    public int AttackDamage => attackDamage;
-    public float  AttackCooldown => attackCooldown;
-    public float AttackRadius => attackRadius;
+    public int MaxHealth => _maxHealth;
+    public float MovementSpeed => _movementSpeed;
+    public int JumpHeight => _jumpHeight;
+    public int AttackDamage => _attackDamage;
+    public float  AttackCooldown => _attackCooldown;
+    public float AttackRadius => _attackRadius;
 }

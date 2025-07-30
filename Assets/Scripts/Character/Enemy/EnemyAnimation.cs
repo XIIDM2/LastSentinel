@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyAnimation : CharacterAnimation
 {
-    private EnemyAttack enemyAttack;
+    private EnemyAttack _enemyAttack;
 
     protected override void Awake()
     {
@@ -11,16 +11,16 @@ public class EnemyAnimation : CharacterAnimation
 
     private void Start()
     {
-        enemyAttack = characterAttack as EnemyAttack;
+        _enemyAttack = _characterAttack as EnemyAttack;
     }
 
     public void ReverseAttackStateEvent()
     {
-        enemyAttack.ReverseAttackState();
+        _enemyAttack.ReverseAttackState();
     }
 
     public void OnAttack()
     {
-        animator.SetTrigger("isAttacking");
+        _animator.SetTrigger("isAttacking");
     }
 }

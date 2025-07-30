@@ -3,29 +3,29 @@ using UnityEngine;
 [RequireComponent(typeof(CircleCollider2D))]
 public class EnemyDetection : MonoBehaviour
 {
-    public bool HasTarget => target != null;
+    public bool HasTarget => _target != null;
 
-    [SerializeField] private float radius = 3.0f;
+    [SerializeField] private float _radius = 3.0f;
 
-    private Transform target;
+    private Transform _target;
 
-    private int playerLayerIndex;
+    private int _playerLayerIndex;
 
-    private CircleCollider2D circleCollider;
+    private CircleCollider2D _circleCollider;
 
     private void Awake()
     {
-        circleCollider = GetComponent<CircleCollider2D>();
+        _circleCollider = GetComponent<CircleCollider2D>();
     }
 
     private void Start()
     {
-        circleCollider.radius = radius;
-        circleCollider.isTrigger = true;
+        _circleCollider.radius = _radius;
+        _circleCollider.isTrigger = true;
 
-        playerLayerIndex = LayerMask.NameToLayer("Player");
+        _playerLayerIndex = LayerMask.NameToLayer("Player");
 
-        if (playerLayerIndex == -1)
+        if (_playerLayerIndex == -1)
         {
             Debug.LogError($"Layer 'Player' not found! create Player layer in Tags & Layers. {gameObject.name} - {this}");
         }
@@ -33,28 +33,28 @@ public class EnemyDetection : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == playerLayerIndex)
+        if (collision.gameObject.layer == _playerLayerIndex)
         {
-            target = collision.transform;
+            _target = collision.transform;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.transform == target) 
+        if (collision.transform == _target) 
         {
-            target = null;
+            _target = null;
         }
     }
 
     public Transform GetTarget()
     {
-        return target;
+        return _target;
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, radius);
+        Gizmos.DrawWireSphere(transform.position, _radius);
     }
 }

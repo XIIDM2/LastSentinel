@@ -6,20 +6,20 @@ public class EnemyMovement : CharacterMovement
     {
         Vector2 targetDirection = (target.position - transform.position).normalized;
 
-        Velocity = new Vector2(targetDirection.x * movementSpeed, Velocity.y);
+        _velocity = new Vector2(targetDirection.x * _movementSpeed, _velocity.y);
     }
 
     public virtual void MoveFromTarget(Transform target)
     {
         Vector2 targetDirection = (target.position - transform.position).normalized;
 
-        Velocity = new Vector2(-targetDirection.x * movementSpeed, Velocity.y);  
+        _velocity = new Vector2(-targetDirection.x * _movementSpeed, _velocity.y);  
 
     }
 
     public virtual void StopMove()
     {
-       Velocity = Vector2.zero;
+        _velocity = Vector2.zero;
     }
 
 }

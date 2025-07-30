@@ -7,16 +7,17 @@ public class PlayerInputController : MonoBehaviour
 {
     public event Action<Vector2> MovementInput;
     public event Action OnJumpPressed;
+    public event Action OnJumpReleased;
     public event Action OnAttackPressed;
     public event Action OnAttackReleased;
 
-    private PlayerInput playerInput;
+    private PlayerInput _playerInput;
 
     private void Awake()
     {
-        playerInput = GetComponent<PlayerInput>();
+        _playerInput = GetComponent<PlayerInput>();
 
-        if (playerInput.notificationBehavior != PlayerNotifications.InvokeCSharpEvents)
+        if (_playerInput.notificationBehavior != PlayerNotifications.InvokeCSharpEvents)
         {
             Debug.LogError("Wrong Player Input Behavior for onActionTriggerEvents, please switch to 'Invoke C# Events' ");
         }
@@ -24,12 +25,12 @@ public class PlayerInputController : MonoBehaviour
 
     private void OnEnable()
     {
-        playerInput.onActionTriggered += HandleAction;
+        _playerInput.onActionTriggered += HandleAction;
     }
 
     private void OnDisable()
     {
-        playerInput.onActionTriggered -= HandleAction;
+        _playerInput.onActionTriggered -= HandleAction;
     }
 
     private void HandleAction(InputAction.CallbackContext context)
@@ -43,6 +44,10 @@ public class PlayerInputController : MonoBehaviour
                 if (context.started)
                 {
                     OnJumpPressed?.Invoke();
+                }
+                else if (context.canceled)
+                {
+                    OnJumpReleased?.Invoke();
                 }
                 break;
             case "Attack":

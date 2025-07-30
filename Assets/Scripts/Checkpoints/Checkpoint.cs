@@ -3,26 +3,26 @@ using UnityEngine.Events;
 
 public class Checkpoint : MonoBehaviour
 {
-    public event UnityAction<Vector2> PlayerEnteredCheckpoint;
+    public event UnityAction<Vector2> _PlayerEnteredCheckpoint;
 
-    [SerializeField] private Transform spawnPointPosition;
+    [SerializeField] private Transform _spawnPointPosition;
 
-    private int playerLayerIndex;
+    private int _playerLayerIndex;
 
     private void Start()
     {
-        playerLayerIndex = LayerMask.NameToLayer("Player");
+        _playerLayerIndex = LayerMask.NameToLayer("Player");
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == playerLayerIndex)
+        if (collision.gameObject.layer == _playerLayerIndex)
         {
-            PlayerEnteredCheckpoint?.Invoke(new Vector2(spawnPointPosition.position.x, spawnPointPosition.position.y));
+            _PlayerEnteredCheckpoint?.Invoke(new Vector2(_spawnPointPosition.position.x, _spawnPointPosition.position.y));
         }
     }
 
     public Vector2 GetSpawnPointPosition()
     {
-        return new Vector2(spawnPointPosition.position.x, spawnPointPosition.position.y);
+        return new Vector2(_spawnPointPosition.position.x, _spawnPointPosition.position.y);
     }
 }

@@ -3,17 +3,17 @@ using VContainer;
 
 public class ChangeObjectDirection : MonoBehaviour
 {
-    private const float thresHold = 0.001f;
+    private const float _thresHold = 0.001f;
     
     public void FaceDirection(float value)
     {
         Vector3 transformScale = transform.localScale;
 
-        if (value < -thresHold)
+        if (value < -_thresHold)
         {
             transformScale.x = -Mathf.Abs(transformScale.x);
         }
-        else if (value > thresHold)
+        else if (value > _thresHold)
         {
             transformScale.x = Mathf.Abs(transformScale.x);
         }

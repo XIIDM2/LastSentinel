@@ -3,56 +3,56 @@ using VContainer;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    [SerializeField] protected float stopDistance = 1.0f;
+    [SerializeField] protected float _stopDistance = 1.0f;
 
     [Header("WallCheck")]
-    [SerializeField] private Transform wallCheck;
-    [SerializeField] private Vector2 wallCheckSize = new Vector2(0.3f, 0.9f);
-    private bool isStuckInWall => Physics2D.OverlapBox(wallCheck.position, wallCheckSize, 0.0f, groundLayer);
+    [SerializeField] private Transform _wallCheck;
+    [SerializeField] private Vector2 _wallCheckSize = new Vector2(0.3f, 0.9f);
+    private bool _isStuckInWall => Physics2D.OverlapBox(_wallCheck.position, _wallCheckSize, 0.0f, _groundLayer);
 
-    private LayerMask groundLayer;
+    private LayerMask _groundLayer;
     [Header("CoolDowns")]
-    [SerializeField] private float jumpCoolDown = 1.0f;
-    private float lastJumpTime = float.MinValue;
+    [SerializeField] private float _jumpCoolDown = 1.0f;
+    private float _lastJumpTime = float.MinValue;
 
-    [SerializeField] protected float attackCoolDown;
-    protected float lastAttackTime = float.MinValue;
+    [SerializeField] protected float _attackCoolDown;
+    protected float _lastAttackTime = float.MinValue;
 
     [Header("Components")]
-    protected EnemyState currentState;
+    protected EnemyState _currentState;
 
-    protected EnemyDetection enemyDetection;
-    protected EnemyMovement enemyMovement;
-    protected EnemyAttack enemyAttack;
-    private EnemyAnimation enemyAnimation;
-    private Health health;
+    protected EnemyDetection _enemyDetection;
+    protected EnemyMovement _enemyMovement;
+    protected EnemyAttack _enemyAttack;
+    private EnemyAnimation _enemyAnimation;
+    private Health _health;
 
-    [Inject] protected CharacterData characterData;
+    [Inject] protected CharacterData _characterData;
 
     private void Awake()
     {
-        enemyDetection = GetComponentInChildren<EnemyDetection>();
-        enemyMovement = GetComponent<EnemyMovement>();
-        enemyAttack = GetComponent<EnemyAttack>();
-        enemyAnimation = GetComponentInChildren<EnemyAnimation>();
-        health = GetComponent<Health>();
+        _enemyDetection = GetComponentInChildren<EnemyDetection>();
+        _enemyMovement = GetComponent<EnemyMovement>();
+        _enemyAttack = GetComponent<EnemyAttack>();
+        _enemyAnimation = GetComponentInChildren<EnemyAnimation>();
+        _health = GetComponent<Health>();
     }
 
     private void OnEnable()
     {
-        health.Death += onDeath;
+        _health.Death += onDeath;
     }
 
     private void OnDisable()
     {
-        health.Death -= onDeath;
+        _health.Death -= onDeath;
     }
 
     protected virtual void Start()
     {
-        groundLayer = LayerMask.GetMask("Ground");
+        _groundLayer = LayerMask.GetMask("Ground");
 
-        attackCoolDown = characterData.AttackCooldown;
+        _attackCoolDown = _characterData.AttackCooldown;
 
         SetState(EnemyState.Idle);
     }
@@ -61,17 +61,17 @@ public class EnemyBehaviour : MonoBehaviour
     {
         UpdateState();
 
-        switch (currentState)
+        switch (_currentState)
         {
             case EnemyState.Idle:
-                enemyMovement.StopMove();
+                _enemyMovement.StopMove();
                 break;
             case EnemyState.AttackTarget:
-                enemyMovement.StopMove();
-                if (Time.time >= lastAttackTime + attackCoolDown)
+                _enemyMovement.StopMove();
+                if (Time.time >= _lastAttackTime + _attackCoolDown)
                 {
-                    enemyAnimation.OnAttack();
-                    lastAttackTime = Time.time;
+                    _enemyAnimation.OnAttack();
+                    _lastAttackTime = Time.time;
                 }
                 break;
         }
@@ -79,16 +79,16 @@ public class EnemyBehaviour : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        switch (currentState)
+        switch (_currentState)
         {
             case EnemyState.RunToTarget:
-                enemyMovement.MoveToTarget(enemyDetection.GetTarget());
+                _enemyMovement.MoveToTarget(_enemyDetection.GetTarget());
                 break;
             case EnemyState.Jump:
-                if (enemyMovement.IsGrounded && Time.time >= lastJumpTime + jumpCoolDown)
+                if (_enemyMovement.IsGrounded && Time.time >= _lastJumpTime + _jumpCoolDown)
                 {
-                    enemyMovement.TryJump();
-                    lastJumpTime = Time.time;     
+                    _enemyMovement.TryJump();
+                    _lastJumpTime = Time.time;     
                 }
                 break;
         }
@@ -96,16 +96,16 @@ public class EnemyBehaviour : MonoBehaviour
 
     protected virtual void UpdateState()
     {
-        if (currentState == EnemyState.Dead) return;
+        if (_currentState == EnemyState.Dead) return;
 
-        if (enemyDetection.HasTarget)
+        if (_enemyDetection.HasTarget)
         {
-            if (!enemyAttack.IsAttacking && Vector2.Distance(enemyDetection.GetTarget().position, gameObject.transform.position) > stopDistance)
+            if (!_enemyAttack.IsAttacking && Vector2.Distance(_enemyDetection.GetTarget().position, gameObject.transform.position) > _stopDistance)
             {
                 SetState(EnemyState.RunToTarget);
             }
 
-            if (Vector2.Distance(enemyDetection.GetTarget().position, gameObject.transform.position) < stopDistance)
+            if (Vector2.Distance(_enemyDetection.GetTarget().position, gameObject.transform.position) < _stopDistance)
             {
                 SetState(EnemyState.AttackTarget);
             }
@@ -116,7 +116,7 @@ public class EnemyBehaviour : MonoBehaviour
             SetState(EnemyState.Idle);
         }
 
-        if (isStuckInWall)
+        if (_isStuckInWall)
         {
             SetState(EnemyState.Jump);
         }
@@ -124,27 +124,27 @@ public class EnemyBehaviour : MonoBehaviour
 
     protected void SetState(EnemyState enemyState)
     {
-        if (enemyState == currentState) return;
+        if (enemyState == _currentState) return;
 
-        currentState = enemyState;
+        _currentState = enemyState;
     }
 
     private void onDeath()
     {
         SetState(EnemyState.Dead);
 
-        enemyMovement.StopMove();
+        _enemyMovement.StopMove();
 
-        enemyDetection.enabled = false;
-        enemyMovement.enabled = false;
-        enemyAttack.enabled = false;
+        _enemyDetection.enabled = false;
+        _enemyMovement.enabled = false;
+        _enemyAttack.enabled = false;
     }
     private void OnDrawGizmosSelected()
     {
-        if (wallCheck != null)
+        if (_wallCheck != null)
         {
             Gizmos.color = Color.yellow;
-            Gizmos.DrawWireCube(wallCheck.position, wallCheckSize);
+            Gizmos.DrawWireCube(_wallCheck.position, _wallCheckSize);
         }
     }
 

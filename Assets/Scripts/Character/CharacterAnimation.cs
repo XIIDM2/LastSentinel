@@ -2,40 +2,40 @@ using UnityEngine;
 
 public class CharacterAnimation : MonoBehaviour
 {
-    protected Animator animator;
-    protected CharacterAttack characterAttack;
-    private Health health;
+    protected Animator _animator;
+    protected CharacterAttack _characterAttack;
+    private Health _health;
 
     protected virtual void Awake()
     {
-        animator = GetComponent<Animator>();
-        health = transform.root.GetComponentInParent<Health>();
-        characterAttack = transform.root.GetComponent<CharacterAttack>();
+        _animator = GetComponent<Animator>();
+        _health = transform.root.GetComponentInParent<Health>();
+        _characterAttack = transform.root.GetComponent<CharacterAttack>();
     }
 
     private void OnEnable()
     {
-        health.HealthDamaged += OnHit;
-        health.Death += OnDeath;
+        _health.HealthDamaged += OnHit;
+        _health.Death += OnDeath;
     }
     private void OnDisable()
     {
-        health.HealthDamaged -= OnHit;
-        health.Death -= OnDeath;
+        _health.HealthDamaged -= OnHit;
+        _health.Death -= OnDeath;
     }
 
     public void AttackEvent()
     {
-        characterAttack.Attack();
+        _characterAttack.Attack();
     }
 
     private void OnHit(int damageAmount)
     {
-        animator.SetTrigger("isHit");
+        _animator.SetTrigger("isHit");
     }
 
     private void OnDeath()
     {
-        animator.SetBool("isDead", true);
+        _animator.SetBool("isDead", true);
     }
 }

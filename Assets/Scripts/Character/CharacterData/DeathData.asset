@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7af01f4e3440c34fb6119fb44acf450, type: 3}
   m_Name: DeathData
   m_EditorClassIdentifier: 
-  maxHealth: 200
-  movementSpeed: 5
-  jumpHeight: 0
-  attackDamage: 25
-  attackCooldown: 2.5
-  attackRadius: 1.7
+  _maxHealth: 200
+  _movementSpeed: 5
+  _jumpHeight: 0
+  _attackDamage: 25
+  _attackCooldown: 2.5
+  _attackRadius: 1.9

@@ -6,18 +6,18 @@ public class DeathMovement : EnemyMovement
     {
         Vector2 targetDirection = (target.position - transform.position).normalized;
 
-        Velocity = targetDirection * movementSpeed;
+        _velocity = targetDirection * _movementSpeed;
     }
 
     public override void MoveFromTarget(Transform target)
     {
         Vector2 targetDirection = (target.position - transform.position).normalized;
 
-        Velocity = -targetDirection * movementSpeed;
+        _velocity = -targetDirection * _movementSpeed;
     }
 
     public override void StopMove()
     {
-        Velocity = Vector2.zero;
+        _velocity = Vector2.zero;
     }
 }

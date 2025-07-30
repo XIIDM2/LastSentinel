@@ -7,16 +7,16 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class GameInitializator : MonoBehaviour
 {
-    [SerializeField] private GameObject mainCameraPrefab;
-    [SerializeField] private GameObject globalLight2DPrefab;
+    [SerializeField] private GameObject _mainCameraPrefab;
+    [SerializeField] private GameObject _globalLight2DPrefab;
 
-    [SerializeField] private AssetReferenceGameObject levelPrefab;
-    [SerializeField] private AssetReferenceGameObject playerPrefab;
+    [SerializeField] private AssetReferenceGameObject _levelPrefab;
+    [SerializeField] private AssetReferenceGameObject _playerPrefab;
 
-    private GameObject mainCamera;
-    private GameObject globalLight2D;
-    private GameObject level; 
-    private GameObject player;
+    private GameObject _mainCamera;
+    private GameObject _globalLight2D;
+    private GameObject _level; 
+    private GameObject _player;
 
     private async void Awake()
     {
@@ -26,23 +26,23 @@ public class GameInitializator : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (level != null) Addressables.ReleaseInstance(level);
+        if (_level != null) Addressables.ReleaseInstance(_level);
 
-        if (player != null) Addressables.ReleaseInstance(player);
+        if (_player != null) Addressables.ReleaseInstance(_player);
     }
 
     private async UniTask CreateObjects()
     {
-        mainCamera = Instantiate(mainCameraPrefab);
-        globalLight2D = Instantiate(globalLight2DPrefab);
+        _mainCamera = Instantiate(_mainCameraPrefab);
+        _globalLight2D = Instantiate(_globalLight2DPrefab);
 
-        level = await Addressables.InstantiateAsync(levelPrefab).ToUniTask();
-        player = await Addressables.InstantiateAsync(playerPrefab).ToUniTask();
+        _level = await Addressables.InstantiateAsync(_levelPrefab).ToUniTask();
+        _player = await Addressables.InstantiateAsync(_playerPrefab).ToUniTask();
     }
 
     private void PrepareLevel()
     {
-       player.transform.position = new Vector3(-9.0f, -2.4f, 0);
+       _player.transform.position = new Vector3(-9.0f, -2.4f, 0);
     }
 
 }

@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b2d25e3981f7de4bae9d594e5070757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 5
+  _radius: 3
 --- !u!58 &3981988089401315319
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -459,9 +459,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9f907514b7b0e4abfd290cfcde211b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackPoint: {fileID: 5177292619424479887}
-  attackDamage: 0
-  attackRadius: 0
+  _AttackPoint: {fileID: 5177292619424479887}
+  _attackDamage: 0
+  _attackRadius: 0
 --- !u!114 &8794892484337079412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,10 +474,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a40075a781de04048bd38afdf6f3b62e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundCheckTransform: {fileID: 3949764022447832420}
-  groundBoxSize: {x: 0.5, y: 0.1}
-  jumpForce: 15
-  movementSpeed: 0
+  _groundCheckTransform: {fileID: 3949764022447832420}
+  _groundBoxSize: {x: 0.5, y: 0.1}
+  _jumpForce: 15
+  _movementSpeed: 0
 --- !u!114 &5206635748031699837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,11 +502,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23964ea73dfae8a408981075b03cfe3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopDistance: 1
-  wallCheck: {fileID: 1151984013521322525}
-  wallCheckSize: {x: 0.3, y: 0.9}
-  jumpCoolDown: 1
-  attackCoolDown: 0
+  _stopDistance: 1
+  _wallCheck: {fileID: 1151984013521322525}
+  _wallCheckSize: {x: 0.3, y: 0.9}
+  _jumpCoolDown: 1
+  _attackCoolDown: 0
 --- !u!114 &3945217137116283870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -537,4 +537,4 @@ MonoBehaviour:
   autoInjectGameObjects:
   - {fileID: 8162921166640606575}
   - {fileID: 6805890388582914570}
-  enemyData: {fileID: 11400000, guid: f09dfafc4d2ce0d4aab1e3c0c278597e, type: 2}
+  _enemyData: {fileID: 11400000, guid: f09dfafc4d2ce0d4aab1e3c0c278597e, type: 2}

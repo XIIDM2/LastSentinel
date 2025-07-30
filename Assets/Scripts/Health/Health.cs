@@ -7,35 +7,35 @@ public class Health : MonoBehaviour
     public event UnityAction<int> HealthDamaged;
     public event UnityAction Death;
 
-    private int maxHealth;
-    private int currentHealth;
+    private int _maxHealth;
+    private int _currentHealth;
 
-    [Inject] private readonly CharacterData characterData;
+    [Inject] private readonly CharacterData _characterData;
 
     private void Start()
     {
-        maxHealth = characterData.MaxHealth;
-        currentHealth = maxHealth;
+        _maxHealth = _characterData.MaxHealth;
+        _currentHealth = _maxHealth;
     }
 
     public void TakeDamage(int amount)
     {
-        if (currentHealth <= 0) return;
+        if (_currentHealth <= 0) return;
 
-        currentHealth -= amount;
-        HealthDamaged?.Invoke(currentHealth);
+        _currentHealth -= amount;
+        HealthDamaged?.Invoke(_currentHealth);
 
-        if (currentHealth <= 0)
+        if (_currentHealth <= 0)
         {
-            currentHealth = 0;
+            _currentHealth = 0;
             Death?.Invoke();
         }
     }
 
     public void HealDamage(int amount)
     {
-        if (currentHealth <= 0 || currentHealth >= maxHealth) return;
+        if (_currentHealth <= 0 || _currentHealth >= _maxHealth) return;
 
-        currentHealth += amount;
+        _currentHealth += amount;
     }
 }
