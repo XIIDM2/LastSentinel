@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: cf60fa7b21dc8ee4c92384aebe1f2efe
+guid: 0d9c4eb4eba8de14ea1e37c9524135e5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -232816620037180596
-    second: 32px fireplace_0
+      213: -9027862265098036150
+    second: 32px fireplace 1_0
   - first:
-      213: 358459484289319377
-    second: 32px fireplace_1
+      213: -119760908902007773
+    second: 32px fireplace 1_1
   - first:
-      213: 5315448914054486316
-    second: 32px fireplace_2
+      213: -7589915394257974836
+    second: 32px fireplace 1_2
   - first:
-      213: 8144035350583981622
-    second: 32px fireplace_3
+      213: -3833354126036103787
+    second: 32px fireplace 1_3
   - first:
-      213: -1760937312096801058
-    second: 32px fireplace_4
+      213: -8448218008248422774
+    second: 32px fireplace 1_4
   - first:
-      213: -1086635657900510099
-    second: 32px fireplace_5
+      213: -6801495817978920153
+    second: 32px fireplace 1_5
   - first:
-      213: 7218365560228955943
-    second: 32px fireplace_6
+      213: 6529966017605670424
+    second: 32px fireplace 1_6
   - first:
-      213: 5904964503668668417
-    second: 32px fireplace_7
+      213: 3930284028767259976
+    second: 32px fireplace 1_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -160,7 +160,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 32px fireplace_0
+      name: 32px fireplace 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -175,14 +175,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c4370e0848ed4ccf0800000000000000
-      internalID: -232816620037180596
+      spriteID: a4c9daff91796b280800000000000000
+      internalID: -9027862265098036150
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32px fireplace_1
+      name: 32px fireplace 1_1
       rect:
         serializedVersion: 2
         x: 32
@@ -197,14 +197,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1d14f63700189f400800000000000000
-      internalID: 358459484289319377
+      spriteID: 32cfaee7616865ef0800000000000000
+      internalID: -119760908902007773
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32px fireplace_2
+      name: 32px fireplace 1_2
       rect:
         serializedVersion: 2
         x: 64
@@ -219,14 +219,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c2914f7ff9444c940800000000000000
-      internalID: 5315448914054486316
+      spriteID: cc90cf979243ba690800000000000000
+      internalID: -7589915394257974836
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32px fireplace_3
+      name: 32px fireplace 1_3
       rect:
         serializedVersion: 2
         x: 96
@@ -241,14 +241,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 63638cd900d650170800000000000000
-      internalID: 8144035350583981622
+      spriteID: 59d075b7bb03dcac0800000000000000
+      internalID: -3833354126036103787
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32px fireplace_5
+      name: 32px fireplace 1_5
       rect:
         serializedVersion: 2
         x: 128
@@ -263,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d64319a50ae7be0f0800000000000000
-      internalID: -1086635657900510099
+      spriteID: 723cf04e69b3c91a0800000000000000
+      internalID: -6801495817978920153
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32px fireplace_7
+      name: 32px fireplace 1_7
       rect:
         serializedVersion: 2
         x: 160
@@ -285,8 +285,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 10836742ee5a2f150800000000000000
-      internalID: 5904964503668668417
+      spriteID: 84d4019208c2b8630800000000000000
+      internalID: 3930284028767259976
       vertices: []
       indices: 
       edges: []
@@ -295,7 +295,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: bda19745732e52e48a620519dacad95a
+    spriteID: 85e58ce350614d04886ecff04a6a4ced
     internalID: 0
     vertices: []
     indices: 
@@ -305,14 +305,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      32px fireplace_0: -232816620037180596
-      32px fireplace_1: 358459484289319377
-      32px fireplace_2: 5315448914054486316
-      32px fireplace_3: 8144035350583981622
-      32px fireplace_4: -1760937312096801058
-      32px fireplace_5: -1086635657900510099
-      32px fireplace_6: 7218365560228955943
-      32px fireplace_7: 5904964503668668417
+      32px fireplace 1_0: -9027862265098036150
+      32px fireplace 1_1: -119760908902007773
+      32px fireplace 1_2: -7589915394257974836
+      32px fireplace 1_3: -3833354126036103787
+      32px fireplace 1_4: -8448218008248422774
+      32px fireplace 1_5: -6801495817978920153
+      32px fireplace 1_6: 6529966017605670424
+      32px fireplace 1_7: 3930284028767259976
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

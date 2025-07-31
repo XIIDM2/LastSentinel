@@ -1,17 +1,16 @@
 using UnityEngine;
+using UnityEngine.Events;
 using VContainer;
 
 public abstract class CharacterAttack : MonoBehaviour
 {
-    [Header("Links")]
-    public bool IsAttacking => _isAttacking;
 
     [Header("Attack")]
+    public bool IsAttacking { get; protected set; }
+
     [SerializeField] private Transform _AttackPoint;
     [SerializeField] private int _attackDamage;
     [SerializeField] private float _attackRadius;
-
-    protected bool _isAttacking;
 
     protected LayerMask _enemyLayer;
 
@@ -34,6 +33,7 @@ public abstract class CharacterAttack : MonoBehaviour
             if (enemiesHit[i].transform.root.TryGetComponent<Health>(out Health health))
             {
                 health.TakeDamage(_attackDamage);
+                Managers.ImpactEffecmanager.HitStopEffect();
             }
         }
     }

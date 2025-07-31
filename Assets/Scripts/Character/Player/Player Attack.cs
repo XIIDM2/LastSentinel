@@ -30,11 +30,11 @@ public class PlayerAttack : CharacterAttack
 
     private void HandleAttackPressed()
     {
-        _isAttacking = true;
+        IsAttacking = true;
     }
 
     private void HandleAttackReleased()
     {
-        _isAttacking = false;
+        IsAttacking = false;
     }
 }

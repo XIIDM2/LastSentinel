@@ -10,7 +10,7 @@ public class EnemyAttack : CharacterAttack
 
     public void ReverseAttackState()
     {
-        _isAttacking = !_isAttacking;
+        IsAttacking = !IsAttacking;
     }
 
 }
