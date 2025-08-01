@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 927489048712584493}
   - component: {fileID: 9045658078357992242}
   - component: {fileID: 1206374581251470572}
+  - component: {fileID: 1269103163836013484}
   m_Layer: 0
   m_Name: Healing Potion
   m_TagString: Untagged
@@ -68,7 +69,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0010889769, y: 0.004563749}
+  m_Offset: {x: 0, y: 0.004563749}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -78,7 +79,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.2810862, y: 0.44425714}
+  m_Size: {x: 0.88, y: 1.01}
   m_EdgeRadius: 0
 --- !u!114 &1206374581251470572
 MonoBehaviour:
@@ -92,7 +93,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0073ca68b351ffd44856ed921174bd52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healingAmount: 25
+  _healingAmount: 25
+--- !u!114 &1269103163836013484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3613934011704917890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aa7dfe2224d1d74f920ddea88b829e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _floatDistance: 0.5
+  _duration: 1
+  _easeType: 10
 --- !u!1 &4149476880163728419
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,8 +185,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 5177826950487066792, guid: 9c5b264d04aade047b84ef9286fd7e80, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 239088572041489407, guid: db2039ede85e44649933dcb310f572af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -39,7 +39,7 @@ public class EnemyDetection : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    protected virtual void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.transform == _target) 
         {
