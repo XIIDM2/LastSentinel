@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5711025493033968176}
-  - {fileID: 5368071155563661801}
+  - {fileID: 5913042708750700902}
   - {fileID: 4022098102760797282}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 1413276862513970032}
   - component: {fileID: 6753328971266170319}
   - component: {fileID: 6591798244980920944}
-  - component: {fileID: 3433703909618570589}
+  - component: {fileID: 4365702470726885283}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -64,7 +64,7 @@ Transform:
   m_GameObject: {fileID: 743742751209200821}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -6.399602, y: -1.6553538, z: -40.40986}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_AssetsPPU: 16
   m_RefResolutionX: 320
   m_RefResolutionY: 180
-  m_CropFrame: 0
+  m_CropFrame: 1
   m_GridSnapping: 2
   m_FilterMode: 0
   m_UpscaleRT: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
---- !u!114 &3433703909618570589
+--- !u!114 &4365702470726885283
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -255,7 +255,7 @@ Transform:
   m_GameObject: {fileID: 4695681555363413732}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -4.625, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -305,9 +305,9 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 40, y: 11.25}
+  m_Size: {x: 59.62, y: 20.5}
   m_EdgeRadius: 0
---- !u!1 &7634844062729488229
+--- !u!1 &8955239461389556133
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -315,12 +315,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5368071155563661801}
-  - component: {fileID: 2164970272924450485}
-  - component: {fileID: 1296913160324020146}
-  - component: {fileID: 2542901068533441862}
-  - component: {fileID: 7280791555409015724}
-  - component: {fileID: 6156972688135661172}
+  - component: {fileID: 5913042708750700902}
+  - component: {fileID: 1439503670805538141}
+  - component: {fileID: 2293359122770575557}
+  - component: {fileID: 7906944645865396836}
+  - component: {fileID: 4108765646964791579}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -328,28 +327,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5368071155563661801
+--- !u!4 &5913042708750700902
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7634844062729488229}
+  m_GameObject: {fileID: 8955239461389556133}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.1875, y: -2.375, z: -10}
+  m_LocalPosition: {x: -6.399602, y: -1.6553538, z: -40.40986}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4814036047986103529}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2164970272924450485
+--- !u!114 &1439503670805538141
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7634844062729488229}
+  m_GameObject: {fileID: 8955239461389556133}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
@@ -368,7 +367,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 34
-    OrthographicSize: 14.652668
+    OrthographicSize: 20.13959
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -386,13 +385,13 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
---- !u!114 &1296913160324020146
+--- !u!114 &2293359122770575557
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7634844062729488229}
+  m_GameObject: {fileID: 8955239461389556133}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 886251e9a18ece04ea8e61686c173e1b, type: 3}
@@ -417,45 +416,25 @@ MonoBehaviour:
     Time: 0
     Smoothing: 0
     IgnoreY: 0
---- !u!114 &2542901068533441862
+--- !u!114 &7906944645865396836
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7634844062729488229}
+  m_GameObject: {fileID: 8955239461389556133}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a8a05de0ac134f4f9d01bef6b9da077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7280791555409015724
+--- !u!114 &4108765646964791579
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7634844062729488229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BoundingShape2D: {fileID: 623625264377015601}
-  Damping: 0.5
-  SlowingDistance: 5
-  OversizeWindow:
-    Enabled: 1
-    MaxWindowSize: 0
-    Padding: 0
-  m_LegacyMaxWindowSize: -2
---- !u!114 &6156972688135661172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7634844062729488229}
+  m_GameObject: {fileID: 8955239461389556133}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}

@@ -15,18 +15,23 @@ MonoBehaviour:
   m_GroupName: Prefabs
   m_GUID: 86e14dbd6e78a3c478d19945965766a7
   m_SerializeEntries:
+  - m_GUID: 191e9b237a888da409307d571d825634
+    m_Address: Death
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 356c62292bb180e44a666d839932b716
-    m_Address: Assets/Prefabs/Player.prefab
+    m_Address: Player
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 436b9667c1f35f144a3152ebf4f07f85
-    m_Address: Assets/Prefabs/Thief.prefab
+    m_Address: Thief
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 901cf06ba2565fc47a5c722ad0125ef7
-    m_Address: Assets/Prefabs/Anomaly.prefab
+    m_Address: Anomaly
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

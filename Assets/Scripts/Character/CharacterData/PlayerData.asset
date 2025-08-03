@@ -12,6 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7af01f4e3440c34fb6119fb44acf450, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
+  _id: Player
+  _characterGameObject:
+    m_AssetGUID: 356c62292bb180e44a666d839932b716
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
   _maxHealth: 100
   _movementSpeed: 10
   _jumpHeight: 15

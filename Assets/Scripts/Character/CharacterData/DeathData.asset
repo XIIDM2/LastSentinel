@@ -12,6 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7af01f4e3440c34fb6119fb44acf450, type: 3}
   m_Name: DeathData
   m_EditorClassIdentifier: 
+  _id: Death
+  _characterGameObject:
+    m_AssetGUID: 191e9b237a888da409307d571d825634
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
   _maxHealth: 200
   _movementSpeed: 5
   _jumpHeight: 0

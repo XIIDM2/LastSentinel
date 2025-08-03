@@ -1,17 +1,18 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
+using VContainer;
 
 public class CheckpointManager : MonoBehaviour
 {
     [SerializeField] private Checkpoint[] _checkpoints;
-    [SerializeField] private AssetReferenceGameObject _playerPrefab;
+
+    private const string _playerID = "Player";
+
+    [Inject] private readonly Factory _factory;
 
     private Vector2 _currentSpawnpoint;
 
     private GameObject _currentPlayerInstance;
-
-    private bool _loadedFromAddressables = false; // Œ¡ﬂ«¿“≈À‹ÕŒ œŒ‘» —“»“‹, —ƒ≈À¿“‹ —œ¿¬Õ ◊≈–≈« ADDRESSABLES
 
     private void Start()
     {
@@ -39,34 +40,18 @@ public class CheckpointManager : MonoBehaviour
         }
     }
 
-    public void SpawnPlayerAtPoint()
+    public async UniTask SpawnPlayerAtPoint()
     {
         if (_currentPlayerInstance != null)
         {
-            if (!_loadedFromAddressables)
-            {
-                Destroy(_currentPlayerInstance);
-            }
-            else
-            {
-                Addressables.ReleaseInstance(_currentPlayerInstance);
-            }
-
+            _factory.ReleaseCharacterInstance(_currentPlayerInstance);
         }
 
-        Addressables.InstantiateAsync(_playerPrefab, _currentSpawnpoint, Quaternion.identity).Completed += OnPlayerSpawned;
-        _loadedFromAddressables = true;
-    }
+        _currentPlayerInstance = await _factory.CreateCharacter(_playerID);
 
-    private void OnPlayerSpawned(AsyncOperationHandle<GameObject> handle)
-    {
-        if (handle.Status == AsyncOperationStatus.Succeeded)
+        if (_currentPlayerInstance != null)
         {
-            _currentPlayerInstance = handle.Result;
-        }
-        else
-        {
-            Debug.LogError("Failed to Instantiate PlayerGameObject from Addressables");
+            _currentPlayerInstance.transform.SetPositionAndRotation(_currentSpawnpoint, Quaternion.identity);
         }
     }
 
