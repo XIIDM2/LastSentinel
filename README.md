@@ -54,6 +54,6 @@
 
 1. Склонируйте репозиторий:
    ```bash
-   git clone https://github.com/XIIDM2/GalaxyBlasterGame.git
+   git clone https://github.com/XIIDM2/Last-Sentinel.git
 2. Откройте проект в Unity (Проект разрабатывался на версии Unity 6000.1.9f1, LTS 2025)
 3. Запустите игру с Сцены StartUp или создайте Build Игры
