@@ -7,6 +7,7 @@ public abstract class CharacterAttack : MonoBehaviour
 
     [Header("Attack")]
     public bool IsAttacking { get; protected set; }
+    public event UnityAction OnAttack;
 
     [SerializeField] private Transform _AttackPoint;
     [SerializeField] private int _attackDamage;
@@ -14,18 +15,20 @@ public abstract class CharacterAttack : MonoBehaviour
 
     protected LayerMask _enemyLayer;
 
-    [Inject] private readonly CharacterData characterData;
+    [Inject] private readonly CharacterData _characterData;
 
     private void Start()
     {
-        _attackDamage = characterData.AttackDamage;
-        _attackRadius = characterData.AttackRadius;
+        _attackDamage = _characterData.AttackDamage;
+        _attackRadius = _characterData.AttackRadius;
 
         SetLayersToHit();
     }
 
     public void Attack()
     {
+        OnAttack?.Invoke();
+
         Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(_AttackPoint.position, _attackRadius, _enemyLayer);
 
         for (int i = 0; i < enemiesHit.Length; i++)

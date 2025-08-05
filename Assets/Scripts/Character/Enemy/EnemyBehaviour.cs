@@ -40,12 +40,12 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void OnEnable()
     {
-        _health.Death += onDeath;
+        _health.OnDeath += onDeath;
     }
 
     private void OnDisable()
     {
-        _health.Death -= onDeath;
+        _health.OnDeath -= onDeath;
     }
 
     protected virtual void Start()

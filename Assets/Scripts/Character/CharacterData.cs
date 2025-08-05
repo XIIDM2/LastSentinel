@@ -8,6 +8,13 @@ public class CharacterData : ScriptableObject
     [SerializeField] private string _id;
     [SerializeField] private AssetReferenceGameObject _characterGameObject;
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip _attackSound;
+    [SerializeField] private AudioClip _hitSound;
+    [SerializeField] private AudioClip _deathSound;
+    [SerializeField] private AudioClip _moveSound;
+    [SerializeField] private AudioClip _jumpSound;
+
     [Header("Character Stats")]
     [SerializeField] private int _maxHealth;
     [SerializeField] private float _movementSpeed;
@@ -18,6 +25,11 @@ public class CharacterData : ScriptableObject
 
     public string ID => _id;
     public AssetReferenceGameObject CharacterPrefab => _characterGameObject;
+    public AudioClip AttackSound => _attackSound;
+    public AudioClip HitSound => _hitSound;
+    public AudioClip DeathSound => _deathSound;
+    public AudioClip MoveSound => _moveSound;
+    public AudioClip JumpSound => _jumpSound;
     public int MaxHealth => _maxHealth;
     public float MovementSpeed => _movementSpeed;
     public int JumpHeight => _jumpHeight;

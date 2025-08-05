@@ -9,19 +9,19 @@ public class CharacterAnimation : MonoBehaviour
     protected virtual void Awake()
     {
         _animator = GetComponent<Animator>();
-        _health = transform.root.GetComponentInParent<Health>();
+        _health = transform.root.GetComponent<Health>();
         _characterAttack = transform.root.GetComponent<CharacterAttack>();
     }
 
     private void OnEnable()
     {
-        _health.HealthDamaged += OnHit;
-        _health.Death += OnDeath;
+        _health.OnHealthDamaged += OnHit;
+        _health.OnDeath += OnDeath;
     }
     private void OnDisable()
     {
-        _health.HealthDamaged -= OnHit;
-        _health.Death -= OnDeath;
+        _health.OnHealthDamaged -= OnHit;
+        _health.OnDeath -= OnDeath;
     }
 
     public void AttackEvent()

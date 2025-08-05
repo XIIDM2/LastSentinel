@@ -38195,7 +38195,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1349215068}
-  - component: {fileID: 1349215069}
   m_Layer: 0
   m_Name: SceneController
   m_TagString: Untagged
@@ -38220,18 +38219,6 @@ Transform:
   - {fileID: 685468789}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1349215069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349215067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 733884453b56c4f45b15a875ad9541d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1390029272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38972,6 +38959,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
+    - target: {fileID: 3297082406026454884, guid: adb02716ec103074ca7a0c54d0cd550b, type: 3}
+      propertyPath: _mainMenuMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 422d17615b6efa1488ffac897cfca010, type: 3}
+    - target: {fileID: 4118013246781700419, guid: adb02716ec103074ca7a0c54d0cd550b, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4118013246781700419, guid: adb02716ec103074ca7a0c54d0cd550b, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4118013246781700419, guid: adb02716ec103074ca7a0c54d0cd550b, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4334344725764983176, guid: adb02716ec103074ca7a0c54d0cd550b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -39011,6 +39014,10 @@ PrefabInstance:
     - target: {fileID: 4334344725764983176, guid: adb02716ec103074ca7a0c54d0cd550b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7242416863429610289, guid: adb02716ec103074ca7a0c54d0cd550b, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -39068,6 +39075,22 @@ PrefabInstance:
     - target: {fileID: 4814036047986103529, guid: f6b8de75a1f875542b49dcd31b377429, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8018580241490672727, guid: f6b8de75a1f875542b49dcd31b377429, type: 3}
+      propertyPath: orthographic size
+      value: 5.625
+      objectReference: {fileID: 0}
+    - target: {fileID: 8018580241490672727, guid: f6b8de75a1f875542b49dcd31b377429, type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8018580241490672727, guid: f6b8de75a1f875542b49dcd31b377429, type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8018580241490672727, guid: f6b8de75a1f875542b49dcd31b377429, type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

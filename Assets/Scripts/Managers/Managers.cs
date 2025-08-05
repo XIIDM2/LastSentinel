@@ -11,6 +11,7 @@ public class Managers : MonoBehaviour
     }
 
     public static ImpactEffectManager ImpactEffecmanager { get; private set; }
+    public static AudioManager AudioManager { get; private set; }
 
     private static Managers _instance;
 
@@ -25,6 +26,7 @@ public class Managers : MonoBehaviour
         _instance = this;
 
         ImpactEffecmanager = GetComponentInChildren<ImpactEffectManager>();
+        AudioManager = GetComponentInChildren<AudioManager>();
 
         DontDestroyOnLoad(gameObject.transform.root.gameObject);
     }

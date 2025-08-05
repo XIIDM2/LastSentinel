@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 6020262666176546333}
   - component: {fileID: 8470972422684151563}
   - component: {fileID: 2415685666870918728}
+  - component: {fileID: 1141042707562947264}
   - component: {fileID: 5544972449504961934}
   m_Layer: 8
   m_Name: Death
@@ -302,6 +303,18 @@ MonoBehaviour:
   _wallCheckSize: {x: 0.3, y: 0.9}
   _jumpCoolDown: 1
   _attackCoolDown: 0
+--- !u!114 &1141042707562947264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4674249126348672561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e6b74c0ccca832448cad8b18553b1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5544972449504961934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,7 +333,7 @@ MonoBehaviour:
   autoInjectGameObjects:
   - {fileID: 4674249126348672561}
   - {fileID: 210713100562727384}
-  _enemyData: {fileID: 11400000, guid: 12b69cadecca475468100e7641a31049, type: 2}
+  _characterData: {fileID: 11400000, guid: 12b69cadecca475468100e7641a31049, type: 2}
 --- !u!1 &5993257406855929570
 GameObject:
   m_ObjectHideFlags: 0

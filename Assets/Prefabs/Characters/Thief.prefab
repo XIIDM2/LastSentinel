@@ -222,6 +222,7 @@ GameObject:
   - component: {fileID: 2523207388173349675}
   - component: {fileID: 3944213429989285843}
   - component: {fileID: 1939407879744729145}
+  - component: {fileID: 7609498139207637630}
   - component: {fileID: 7990038428904497054}
   m_Layer: 6
   m_Name: Thief
@@ -351,6 +352,18 @@ MonoBehaviour:
   _wallCheckSize: {x: 0.3, y: 0.9}
   _jumpCoolDown: 1
   _attackCoolDown: 0
+--- !u!114 &7609498139207637630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7468468757823723507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e6b74c0ccca832448cad8b18553b1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7990038428904497054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,7 +382,7 @@ MonoBehaviour:
   autoInjectGameObjects:
   - {fileID: 7468468757823723507}
   - {fileID: 8060798413390567560}
-  _enemyData: {fileID: 11400000, guid: bcaf79037f7eead48a77735937e236d1, type: 2}
+  _characterData: {fileID: 11400000, guid: bcaf79037f7eead48a77735937e236d1, type: 2}
 --- !u!1 &7811782859064932961
 GameObject:
   m_ObjectHideFlags: 0

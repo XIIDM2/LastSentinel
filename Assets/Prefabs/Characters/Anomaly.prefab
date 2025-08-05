@@ -489,6 +489,7 @@ GameObject:
   - component: {fileID: 5206635748031699837}
   - component: {fileID: 3567054681497704043}
   - component: {fileID: 3945217137116283870}
+  - component: {fileID: 2986814417603447876}
   - component: {fileID: 4152103129492436525}
   m_Layer: 6
   m_Name: Anomaly
@@ -618,6 +619,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfde80d77c8d91449d309df2c61cd6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2986814417603447876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8162921166640606575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e6b74c0ccca832448cad8b18553b1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4152103129492436525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -636,4 +649,4 @@ MonoBehaviour:
   autoInjectGameObjects:
   - {fileID: 8162921166640606575}
   - {fileID: 6805890388582914570}
-  _enemyData: {fileID: 11400000, guid: f09dfafc4d2ce0d4aab1e3c0c278597e, type: 2}
+  _characterData: {fileID: 11400000, guid: f09dfafc4d2ce0d4aab1e3c0c278597e, type: 2}

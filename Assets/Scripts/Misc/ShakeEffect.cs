@@ -15,12 +15,12 @@ public class ShakeEffect : MonoBehaviour
 
     private void OnEnable()
     {
-        _health.HealthDamaged += OnHit;
+        _health.OnHealthDamaged += OnHit;
     }
 
     private void OnDisable()
     {
-        _health.HealthDamaged -= OnHit;
+        _health.OnHealthDamaged -= OnHit;
     }
 
     private void OnHit(int damageAmount)

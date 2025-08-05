@@ -1,8 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
 using VContainer;
 
 public class CharacterMovement : MonoBehaviour
 {
+    public event UnityAction OnJump;
+
     [Header("Ground")]
     public bool IsGrounded => _isGrounded;
     [SerializeField] protected Transform _groundCheckTransform;
@@ -20,7 +23,7 @@ public class CharacterMovement : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] protected float _movementSpeed;
-    [property:SerializeField] protected Vector2 _velocity
+    protected Vector2 _velocity
     {
         get
         {
@@ -67,6 +70,7 @@ public class CharacterMovement : MonoBehaviour
     public void TryJump()
     {
         _rigidBody.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+        OnJump?.Invoke();
     }
 
     private void OnDrawGizmosSelected()

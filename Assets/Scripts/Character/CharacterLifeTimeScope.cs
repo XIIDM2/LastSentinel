@@ -4,10 +4,10 @@ using VContainer.Unity;
 
 public class CharacterLifeTimeScope : LifetimeScope
 {
-    [SerializeField] private CharacterData _enemyData;
+    [SerializeField] private CharacterData _characterData;
     protected override void Configure(IContainerBuilder builder)
     {
-        builder.RegisterInstance(_enemyData);
+        builder.RegisterInstance(_characterData);
     }  
 }
 

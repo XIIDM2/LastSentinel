@@ -24,11 +24,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        _health.Death += OnDeath;
+        _health.OnDeath += OnDeath;
     }
     private void OnDisable()
     {
-        _health.Death -= OnDeath;
+        _health.OnDeath -= OnDeath;
     }
 
     private void OnDeath()

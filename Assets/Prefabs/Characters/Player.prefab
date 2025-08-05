@@ -171,6 +171,7 @@ GameObject:
   - component: {fileID: 7212519902069809532}
   - component: {fileID: 2322975767960120663}
   - component: {fileID: 4002043456034339231}
+  - component: {fileID: 2292521840473303173}
   - component: {fileID: 4825177038421249172}
   m_Layer: 31
   m_Name: Player
@@ -339,6 +340,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfde80d77c8d91449d309df2c61cd6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2292521840473303173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4713836438149436050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e6b74c0ccca832448cad8b18553b1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4825177038421249172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,7 +369,7 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects:
   - {fileID: 4713836438149436050}
-  _enemyData: {fileID: 11400000, guid: 44ae2844702567f4f804994f29bb2060, type: 2}
+  _characterData: {fileID: 11400000, guid: 44ae2844702567f4f804994f29bb2060, type: 2}
 --- !u!1 &5633109482036289310
 GameObject:
   m_ObjectHideFlags: 0
