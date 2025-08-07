@@ -15,15 +15,15 @@ public class ShakeEffect : MonoBehaviour
 
     private void OnEnable()
     {
-        _health.OnHealthDamaged += OnHit;
+        _health.OnHealthChanged += OnHit;
     }
 
     private void OnDisable()
     {
-        _health.OnHealthDamaged -= OnHit;
+        _health.OnHealthChanged -= OnHit;
     }
 
-    private void OnHit(int damageAmount)
+    private void OnHit()
     {
         Managers.ImpactEffecmanager.HitShakeEffect(_impulseSource);
     }

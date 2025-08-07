@@ -21,7 +21,7 @@ MonoBehaviour:
     m_EditorAssetChanged: 0
   _attackSound: {fileID: 8300000, guid: 90fb91c5d9f18df4183363d36d921429, type: 3}
   _hitSound: {fileID: 8300000, guid: 0e79de0e74057fb4fa2140206b33fabe, type: 3}
-  _deathSound: {fileID: 0}
+  _deathSound: {fileID: 8300000, guid: de85f09bb8728fe4e8d06bf71575cdfa, type: 3}
   _moveSound: {fileID: 8300000, guid: e68b64fe751d3cf409a0c663fe110408, type: 3}
   _jumpSound: {fileID: 8300000, guid: 4e349dc959014a845b9aa317d1c2b7f0, type: 3}
   _maxHealth: 100

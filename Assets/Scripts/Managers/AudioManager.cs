@@ -8,6 +8,8 @@ public class AudioManager : MonoBehaviour, IGameManager
     [SerializeField] private AudioSource _sfxSource;
 
     [SerializeField] private AudioClip _mainMenuMusic;
+    [SerializeField] private AudioClip _hoverButtonSound;
+    [SerializeField] private AudioClip _pressButtonSound;
 
     private void Awake()
     {
@@ -27,6 +29,16 @@ public class AudioManager : MonoBehaviour, IGameManager
         _musicSource.priority = 60;
 
         PlayMainMenuMusic();
+    }
+
+    public void PlayHoverSound()
+    {
+        _sfxSource.PlayOneShot(_hoverButtonSound);
+    }
+
+    public void PlayPressSound()
+    {
+        _sfxSource.PlayOneShot(_pressButtonSound);
     }
 
     public void PlayClip(AudioClip clip)

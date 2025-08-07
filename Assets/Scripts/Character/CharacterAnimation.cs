@@ -15,12 +15,12 @@ public class CharacterAnimation : MonoBehaviour
 
     private void OnEnable()
     {
-        _health.OnHealthDamaged += OnHit;
+        _health.OnHealthChanged += OnHit;
         _health.OnDeath += OnDeath;
     }
     private void OnDisable()
     {
-        _health.OnHealthDamaged -= OnHit;
+        _health.OnHealthChanged -= OnHit;
         _health.OnDeath -= OnDeath;
     }
 
@@ -29,7 +29,7 @@ public class CharacterAnimation : MonoBehaviour
         _characterAttack.Attack();
     }
 
-    private void OnHit(int damageAmount)
+    private void OnHit()
     {
         _animator.SetTrigger("isHit");
     }

@@ -19,14 +19,14 @@ public class CharacterAudio : MonoBehaviour
     {
         _characterMovement.OnJump += OnJump;
         _characterAttack.OnAttack += OnAttack;
-        _health.OnHealthDamaged += OnHit;
+        _health.OnHealthChanged += OnHit;
         _health.OnDeath += OnDeath;
     }
     private void OnDisable()
     {
         _characterMovement.OnJump -= OnJump;
         _characterAttack.OnAttack -= OnAttack;
-        _health.OnHealthDamaged -= OnHit;
+        _health.OnHealthChanged -= OnHit;
         _health.OnDeath -= OnDeath;
     }
 
@@ -40,7 +40,7 @@ public class CharacterAudio : MonoBehaviour
         Managers.AudioManager.PlayClip(_characterData.AttackSound);
     }
 
-    private void OnHit(int damageAmount)
+    private void OnHit()
     {
         Managers.AudioManager.PlayClip(_characterData.HitSound);
     }

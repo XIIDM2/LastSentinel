@@ -9,6 +9,8 @@ public class ScenesMananger : MonoBehaviour, IGameManager
     public event UnityAction OnDefeat;
     public bool IsGameEnded => _isGameEnded;
 
+    [SerializeField] private string _gameLevelName = "Level";
+
     private bool _isGameEnded = false;
 
     public void Victory()
@@ -35,6 +37,11 @@ public class ScenesMananger : MonoBehaviour, IGameManager
         Time.timeScale = 1.0f;
     }
 
+    public void StartGameLevel()
+    {
+        SceneManager.LoadScene(_gameLevelName);
+    }
+
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -48,5 +55,10 @@ public class ScenesMananger : MonoBehaviour, IGameManager
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }

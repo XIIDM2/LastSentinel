@@ -3,8 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class UIMenusLoader : MonoBehaviour
 {
-    private const string PauseMenuName = "PauseMenu";
-    private const string ResultMenuName = "ResultMenu";
+    private const string GUISceneName = "GUI";
     private const string MainMenuName = "MainMenu";
 
     private void Start()
@@ -12,44 +11,26 @@ public class UIMenusLoader : MonoBehaviour
         if (SceneManager.GetActiveScene().name != MainMenuName)
         {
             LoadPauseMenu();
-            LoadResultMenu();
         }
         else
         {
             UnloadPauseMenu();
-            UnloadResultMenu();
         }
     }
 
     private void LoadPauseMenu()
     {
-        if (!SceneManager.GetSceneByName(PauseMenuName).isLoaded)
+        if (!SceneManager.GetSceneByName(GUISceneName).isLoaded)
         {
-            SceneManager.LoadSceneAsync(PauseMenuName, LoadSceneMode.Additive);
-        }
-    }
-
-    private void LoadResultMenu()
-    {
-        if (!SceneManager.GetSceneByName(ResultMenuName).isLoaded)
-        {
-            SceneManager.LoadSceneAsync(ResultMenuName, LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync(GUISceneName, LoadSceneMode.Additive);
         }
     }
 
     private void UnloadPauseMenu()
     {
-        if (SceneManager.GetSceneByName(PauseMenuName).isLoaded)
+        if (SceneManager.GetSceneByName(GUISceneName).isLoaded)
         {
-            SceneManager.UnloadSceneAsync(PauseMenuName);
-        }
-    }
-
-    private void UnloadResultMenu()
-    {
-        if (SceneManager.GetSceneByName(ResultMenuName).isLoaded)
-        {
-            SceneManager.UnloadSceneAsync(ResultMenuName);
+            SceneManager.UnloadSceneAsync(GUISceneName);
         }
     }
 }

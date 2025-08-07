@@ -4,7 +4,7 @@ using VContainer;
 
 public class Health : MonoBehaviour
 {
-    public event UnityAction<int> OnHealthDamaged;
+    public event UnityAction OnHealthChanged;
     public event UnityAction OnDeath;
 
     private int _maxHealth;
@@ -18,12 +18,22 @@ public class Health : MonoBehaviour
         _currentHealth = _maxHealth;
     }
 
+    public int GetCurrentHealth()
+    {
+        return _currentHealth;
+    }
+
+    public int GetMaxHealth()
+    {
+        return _maxHealth;
+    }
+
     public void TakeDamage(int amount)
     {
         if (_currentHealth <= 0) return;
 
         _currentHealth -= amount;
-        OnHealthDamaged?.Invoke(_currentHealth);
+        OnHealthChanged?.Invoke();
 
         if (_currentHealth <= 0)
         {
@@ -37,5 +47,11 @@ public class Health : MonoBehaviour
         if (_currentHealth <= 0 || _currentHealth >= _maxHealth) return;
 
         _currentHealth += amount;
+        if (_currentHealth >= _maxHealth)
+        {
+            _currentHealth = _maxHealth;
+        }
+        
+        OnHealthChanged?.Invoke();
     }
 }
