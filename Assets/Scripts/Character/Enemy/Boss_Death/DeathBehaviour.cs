@@ -41,4 +41,10 @@ public class DeathBehaviour : EnemyBehaviour
             SetState(EnemyState.Idle);
         }
     }
+
+    protected override void onDeath()
+    {
+        base.onDeath();
+        Managers.ScenesMananger.Victory();
+    }
 }

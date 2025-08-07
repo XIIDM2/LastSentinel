@@ -17,6 +17,8 @@ public class ImpactEffectManager : MonoBehaviour, IGameManager
             _hitStopCoroutine = null;
         }
 
+        if (Managers.ScenesMananger.IsGameEnded) return;
+
         _hitStopCoroutine = StartCoroutine(HitStopRoutine(_hitStopDuration));
     }    
 
@@ -28,8 +30,11 @@ public class ImpactEffectManager : MonoBehaviour, IGameManager
     private IEnumerator HitStopRoutine(float hitStopDuration)
     {
         Time.timeScale = 0.0f;
+
         yield return new WaitForSecondsRealtime(hitStopDuration);
+
         Time.timeScale = 1.0f;
         _hitStopCoroutine = null;
+        
     }
 }

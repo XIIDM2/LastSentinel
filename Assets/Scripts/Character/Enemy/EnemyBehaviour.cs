@@ -129,7 +129,7 @@ public class EnemyBehaviour : MonoBehaviour
         _currentState = enemyState;
     }
 
-    private void onDeath()
+    protected virtual void onDeath()
     {
         SetState(EnemyState.Dead);
 

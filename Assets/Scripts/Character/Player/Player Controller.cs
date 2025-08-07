@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     {
         _playerMovement.enabled = false;
         _playerAttack.enabled = false;
+        Managers.ScenesMananger.Defeat();
     }
 
 }

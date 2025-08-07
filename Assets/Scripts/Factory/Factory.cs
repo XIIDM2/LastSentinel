@@ -1,9 +1,7 @@
 using Cysharp.Threading.Tasks;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.SceneManagement;
 using VContainer;
 
 public class Factory
@@ -23,7 +21,10 @@ public class Factory
         }
 
         GameObject characterInstance = await assetReferencePrefab.InstantiateAsync().ToUniTask();
+
+
         _characters.Add(characterInstance);
+
 
         return characterInstance;
     }
