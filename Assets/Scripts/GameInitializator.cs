@@ -1,9 +1,6 @@
 using Cysharp.Threading.Tasks;
-using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class GameInitializator : MonoBehaviour
 {
