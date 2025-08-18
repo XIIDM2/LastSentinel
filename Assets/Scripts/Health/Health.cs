@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
 
     [Inject] private readonly CharacterData _characterData;
 
-    private void Start()
+    private void Awake()
     {
         _maxHealth = _characterData.MaxHealth;
         _currentHealth = _maxHealth;

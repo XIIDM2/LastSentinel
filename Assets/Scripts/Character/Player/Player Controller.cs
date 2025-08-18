@@ -1,5 +1,6 @@
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     {
         _playerMovement.enabled = true;
         _playerAttack.enabled = true;
+
     }
 
     private void OnEnable()
