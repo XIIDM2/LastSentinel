@@ -23,14 +23,10 @@ public class CharactersSpawner : MonoBehaviour
 
     private async void Start()
     {
-        List<UniTask> spawnTasks = new();
-
         for (int i = 0; i < _spawnPoints.Length; i++)
         {
-            spawnTasks.Add(SpawnAndLocateCharacter(_spawnPoints[i].CharacterID.ToString(), _spawnPoints[i].SpawnPosition));
-        }
-
-        await UniTask.WhenAll(spawnTasks);
+            await SpawnAndLocateCharacter(_spawnPoints[i].CharacterID.ToString(), _spawnPoints[i].SpawnPosition);
+        }      
     }
 
     private async UniTask SpawnAndLocateCharacter(string ID, Vector2 spawnPosition)
@@ -44,6 +40,7 @@ public class CharactersSpawner : MonoBehaviour
             if (ID == CharactersID.Player.ToString())
             {
                 _cinemachineCamera.Follow = _character.gameObject.transform;
+                CheckpointManager.Instance.OnPlayerSpawned?.Invoke(_character.GetComponent<Health>());
             }
         }        
     }

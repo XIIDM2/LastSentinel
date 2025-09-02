@@ -29,6 +29,24 @@ public class Factory
         return characterInstance;
     }
 
+    public GameObject CreatePlayer(string characterID)
+    {
+        AssetReferenceGameObject assetReferencePrefab = _charactersDataCollection.GetCharacterPrefab(characterID);
+
+        if (assetReferencePrefab == null)
+        {
+            Debug.LogError("Prefab is null in factory");
+            return null;
+        }
+
+        GameObject playerInstance = assetReferencePrefab.InstantiateAsync().WaitForCompletion();
+
+        _characters.Add(playerInstance);
+
+
+        return playerInstance;
+    }
+
     public void ReleaseAllCharacters()
     {
         foreach (GameObject character in _characters)

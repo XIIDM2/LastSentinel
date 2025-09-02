@@ -9,20 +9,10 @@ public class UIPlayerHealth : MonoBehaviour
 
     private Health _playerHealth;
 
-    private void Awake()
-    {
-        SetPlayerHealth();
-    }
-
-    private void Start()
-    {
-        _healthSlider.maxValue = _playerHealth.GetMaxHealth();
-        UpdateUIHealthStats();
-    }
-
     private void OnEnable()
     {
         if (CheckpointManager.Instance != null) CheckpointManager.Instance.OnPlayerSpawned += SetUIHealthStats;
+        if (_playerHealth == null) SetPlayerHealth();
         _playerHealth.OnHealthChanged += UpdateUIHealthStats;
     }
 
@@ -35,25 +25,29 @@ public class UIPlayerHealth : MonoBehaviour
     private void SetPlayerHealth()
     {
         _playerHealth = GameObject.FindFirstObjectByType<PlayerController>().GetComponent<Health>();
+        UpdateUIHealthStats();
     }
 
     private void SetUIHealthStats(Health playerHealth)
     {
+        Debug.Log("Event Happened!");
         if (_playerHealth != null)
         {
             _playerHealth.OnHealthChanged -= UpdateUIHealthStats;
         }
-
+        
         _playerHealth = playerHealth;
 
+        Debug.Log("Player Assinged");
+
         _playerHealth.OnHealthChanged += UpdateUIHealthStats;
-        _healthSlider.maxValue = _playerHealth.GetMaxHealth();
         UpdateUIHealthStats();
     }
 
     private void UpdateUIHealthStats()
     {
         _healthText.text = $"{_playerHealth.GetCurrentHealth()}/{_playerHealth.GetMaxHealth()}";
+        _healthSlider.maxValue = _playerHealth.GetMaxHealth();
         _healthSlider.value = _playerHealth.GetCurrentHealth();
     } 
 }

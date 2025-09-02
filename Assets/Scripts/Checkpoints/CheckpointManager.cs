@@ -8,7 +8,7 @@ public class CheckpointManager : MonoBehaviour
 {
     public static CheckpointManager Instance { get; private set; }
 
-    public event UnityAction<Health> OnPlayerSpawned;
+    public UnityAction<Health> OnPlayerSpawned;
 
     [SerializeField] private Checkpoint[] _checkpoints;
 
