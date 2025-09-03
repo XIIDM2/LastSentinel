@@ -22,7 +22,7 @@ public class UIMenusLoader : MonoBehaviour
     {
         if (!SceneManager.GetSceneByName(GUISceneName).isLoaded)
         {
-            SceneManager.LoadSceneAsync(GUISceneName, LoadSceneMode.Additive);
+            SceneManager.LoadScene(GUISceneName, LoadSceneMode.Additive);
         }
     }
 

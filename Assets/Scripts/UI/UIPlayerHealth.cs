@@ -12,33 +12,23 @@ public class UIPlayerHealth : MonoBehaviour
     private void OnEnable()
     {
         if (CheckpointManager.Instance != null) CheckpointManager.Instance.OnPlayerSpawned += SetUIHealthStats;
-        if (_playerHealth == null) SetPlayerHealth();
-        _playerHealth.OnHealthChanged += UpdateUIHealthStats;
+        if (_playerHealth != null) _playerHealth.OnHealthChanged += UpdateUIHealthStats;
     }
 
     private void OnDisable()
     {
         if (CheckpointManager.Instance != null) CheckpointManager.Instance.OnPlayerSpawned -= SetUIHealthStats;
-        _playerHealth.OnHealthChanged -= UpdateUIHealthStats;
-    }
-
-    private void SetPlayerHealth()
-    {
-        _playerHealth = GameObject.FindFirstObjectByType<PlayerController>().GetComponent<Health>();
-        UpdateUIHealthStats();
+        if (_playerHealth != null) _playerHealth.OnHealthChanged -= UpdateUIHealthStats;
     }
 
     private void SetUIHealthStats(Health playerHealth)
     {
-        Debug.Log("Event Happened!");
         if (_playerHealth != null)
         {
             _playerHealth.OnHealthChanged -= UpdateUIHealthStats;
         }
         
         _playerHealth = playerHealth;
-
-        Debug.Log("Player Assinged");
 
         _playerHealth.OnHealthChanged += UpdateUIHealthStats;
         UpdateUIHealthStats();
